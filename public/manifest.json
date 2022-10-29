@@ -1,6 +1,7 @@
 {
   "name": "My Eria",
   "short_name": "My Eria",
+  "description": "My Eria app",
   "icons": [
     {
       "src": "/logo.png",
@@ -23,5 +24,6 @@
   "background_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "scope": "/"
 }
