@@ -1,29 +1,56 @@
 {
-  "name": "My Eria",
-  "short_name": "My Eria",
-  "description": "My Eria app",
+  "theme_color": "#00aeef",
+  "background_color": "#00aeef",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "MyEria",
+  "description": "MyEria",
+  "short_name": "MyEria",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/logo-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
-      "src": "/logo.png",
+      "src": "/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo-384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "/logo.png",
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "scope": "/"
+  ]
 }
