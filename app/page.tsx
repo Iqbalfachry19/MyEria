@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -8,15 +9,15 @@ export default function Home() {
         <h1 className={styles.title}>Welcome to My Eria</h1>
 
         <div className={styles.grid}>
-          <a href="/scan" className={styles.card}>
+          <Link href="/scan" className={styles.card}>
             <h2>Scan a qr code&rarr;</h2>
             <p>Scan a qr code with your camera</p>
-          </a>
+          </Link>
 
-          <a href="/generate" className={styles.card}>
+          <Link href="/generate" className={styles.card}>
             <h2> Generate a qr code&rarr;</h2>
             <p> Generate a qr code with text or a link</p>
-          </a>
+          </Link>
         </div>
       </main>
 
