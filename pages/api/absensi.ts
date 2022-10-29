@@ -2,7 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
-  name: string;
+  id: string | string[] | undefined;
+  name: string | string[] | undefined;
+  location: string | string[] | undefined;
 };
 
 export default function handler(
@@ -10,5 +12,8 @@ export default function handler(
   res: NextApiResponse<Data>,
 ) {
   console.log(req.query.name);
-  res.status(200).json({ name });
+  const id = req.query.id;
+  const location = req.query.location;
+  const name = req.query.name;
+  res.status(200).json({ id, name, location });
 }
