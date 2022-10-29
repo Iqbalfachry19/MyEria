@@ -11,7 +11,7 @@ const Scan = (props: Props) => {
   return (
     <div className={styles.container}>
       <QrReader
-        onResult={(result: { text: SetStateAction<string> }, error: any) => {
+        onResult={(result, error) => {
           if (!!result) {
             setData(result?.text);
           }
