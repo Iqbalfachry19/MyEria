@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, SetStateAction } from 'react';
+import { useState, SetStateAction } from 'react';
 import { QrReader } from 'react-qr-reader';
 import styles from '../page.module.css';
 
