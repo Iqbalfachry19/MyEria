@@ -6,12 +6,10 @@ function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
   return fn as (arg: T) => R;
 }
 const getData = async () => {
-  const prisma = new PrismaClient();
-  const posts = await prisma.karyawan.findMany({
-    orderBy: {
-      id: 'asc',
-    },
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`, {
+    cache: 'no-store',
   });
+  const posts = await res.json();
   return posts as any[];
 };
 const Karyawan = asyncComponent(async (props: Props) => {
