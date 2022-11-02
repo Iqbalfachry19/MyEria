@@ -1,8 +1,8 @@
 import Karyawan from './Karyawan';
 import Tambah from './tambah/Tambah';
-export const dynamic = 'auto',
+export const dynamic = 'force-dynamic',
   dynamicParams = true,
-  revalidate = false,
+  revalidate = 0,
   fetchCache = 'auto',
   runtime = 'nodejs',
   preferredRegion = 'auto';
