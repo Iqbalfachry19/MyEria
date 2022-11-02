@@ -2,7 +2,7 @@ import Karyawan from './Karyawan';
 import Tambah from './tambah/Tambah';
 export const dynamic = 'auto',
   dynamicParams = true,
-  revalidate = 0,
+  revalidate = false,
   fetchCache = 'auto',
   runtime = 'nodejs',
   preferredRegion = 'auto';
