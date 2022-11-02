@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 type Props = {};
-export const dynamic = 'force-dynamic';
+
 function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
   return fn as (arg: T) => R;
 }
