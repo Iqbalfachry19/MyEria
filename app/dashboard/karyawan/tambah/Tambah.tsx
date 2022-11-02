@@ -6,9 +6,9 @@ const Tambah = () => {
   const [name, setName] = useState('');
   const [nik, setNik] = useState('');
   const [jabatan, setJabatan] = useState('');
-  const [a, setA] = useState('');
   const router = useRouter();
-  const create = async () => {
+  const create = async (e: any) => {
+    e.preventDefault();
     await fetch(`${process.env.NEXT_PUBLIC_URL}/api/createKaryawan`, {
       method: 'POST',
       headers: {
@@ -27,7 +27,7 @@ const Tambah = () => {
   };
   return (
     <div>
-      <form onSubmit={create}>
+      <form onSubmit={(e) => create(e)}>
         <h1>Tambah Karyawan</h1>
         <input
           type="text"
@@ -49,12 +49,6 @@ const Tambah = () => {
         />
         <button type="submit">Tambah Karyawan</button>
       </form>
-      <input
-        type="text"
-        placeholder="a"
-        value={a}
-        onChange={(e) => setA(e.target.value)}
-      />
     </div>
   );
 };
