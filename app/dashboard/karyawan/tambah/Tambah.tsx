@@ -23,6 +23,7 @@ const Tambah = () => {
     setName('');
     setJabatan('');
     setNik('');
+    router.refresh();
   };
   return (
     <div>
