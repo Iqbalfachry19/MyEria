@@ -11,7 +11,7 @@ async function Page({ params }: { params: { id: string } }) {
   console.log(post);
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <Ubah params={params.id} post />
+      <Ubah params={params.id} post={post} />
     </div>
   );
 }
