@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 type Props = {};
 
 function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
@@ -14,7 +15,21 @@ const getData = async () => {
 };
 const Karyawan = asyncComponent(async (props: Props) => {
   const posts = await getData();
+  const router = useRouter();
+  const hapus = async (e: any, { id }: any) => {
+    e.preventDefault();
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/deleteKaryawan`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
 
+    router.refresh();
+  };
   return (
     <div className="flex">
       <div>
@@ -38,7 +53,7 @@ const Karyawan = asyncComponent(async (props: Props) => {
                 <td>{post.jabatan}</td>
                 <td className="space-x-2">
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
-                  <button>hapus</button>
+                  <button onClick={(e) => hapus(e, post.id)}>hapus</button>
                 </td>
               </tr>
             ))}
