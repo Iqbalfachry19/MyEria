@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import TimePicker from 'react-time-picker';
+import TimePicker from 'react-time-picker/dist/entry.nostyle';
 
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
@@ -26,7 +26,7 @@ const Tambah = ({ posts }: any) => {
   };
   return (
     <div className="flex px-2">
-      <form onSubmit={(e) => create(e)} className="w-screen">
+      <form onSubmit={(e) => create(e)} className="">
         <h1>Tambah Jam Absensi Karyawan</h1>
         <div className="flex flex-col">
           <label>Karyawan</label>
