@@ -40,18 +40,20 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <div className="flex">
+          <div className="flex flex-col">
             <label>Jam Masuk</label>
             <TimePicker
               onChange={(value: any) => setJamMasuk(value)}
               value={jamMasuk}
+              disableClock
             />
           </div>
-          <div className="flex">
+          <div className="flex flex-col">
             <label>Jam Keluar</label>
             <TimePicker
               onChange={(value: any) => setJamKeluar(value)}
               value={jamKeluar}
+              disableClock
             />
           </div>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
