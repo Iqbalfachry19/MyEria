@@ -28,7 +28,7 @@ const Ubah = ({ params, post }: any) => {
     setName('');
     setJabatan('');
     setNik('');
-    router.push('/karyawan');
+    router.push('/dashboard/karyawan');
   };
   return (
     <div>
