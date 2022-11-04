@@ -1,9 +1,9 @@
-import { BeatLoader } from 'react-spinners';
+import { SpinnerCircular } from 'spinners-react';
 
 export default function Loading() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <BeatLoader color="#36d7b7" />
+      <SpinnerCircular />
     </div>
   );
 }

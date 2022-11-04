@@ -41,13 +41,20 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <label>Jam Masuk</label>
-          <TimePicker onChange={() => setJamMasuk(jamMasuk)} value={jamMasuk} />
-          <label>Jam Keluar</label>
-          <TimePicker
-            onChange={() => setJamKeluar(jamKeluar)}
-            value={jamKeluar}
-          />
+          <div>
+            <label>Jam Masuk</label>
+            <TimePicker
+              onChange={() => setJamMasuk(jamMasuk)}
+              value={jamMasuk}
+            />
+          </div>
+          <div>
+            <label>Jam Keluar</label>
+            <TimePicker
+              onChange={() => setJamKeluar(jamKeluar)}
+              value={jamKeluar}
+            />
+          </div>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>
       </form>
