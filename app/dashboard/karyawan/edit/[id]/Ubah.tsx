@@ -16,7 +16,7 @@ const getData = async (params: any) => {
 const Ubah = ({ params }: any) => {
   const post = use(getData(params));
   console.log(post);
-  const [name, setName] = useState('');
+  const [name, setName] = useState(post.name);
   const [nik, setNik] = useState('');
   const [jabatan, setJabatan] = useState('');
   const router = useRouter();
