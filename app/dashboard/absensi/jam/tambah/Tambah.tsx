@@ -26,7 +26,7 @@ const Tambah = ({ posts }: any) => {
     router.refresh();
   };
   return (
-    <div className="flex">
+    <div className="flex px-2">
       <form onSubmit={(e) => create(e)}>
         <h1>Tambah Jam Absensi Karyawan</h1>
         <div className="flex flex-col">
