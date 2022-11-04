@@ -11,11 +11,11 @@ export default async function handler(
   const nama = req.body.name;
   const nik = req.body.nik;
   const jabatan = req.body.jabatan;
-
+  const id = req.body.id;
   const prisma = new PrismaClient();
   const posts = await prisma.karyawan.update({
     where: {
-      nik,
+      id,
     },
     data: {
       nama,

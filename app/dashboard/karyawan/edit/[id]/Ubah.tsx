@@ -6,6 +6,7 @@ type Props = {};
 
 const Ubah = ({ params, post }: any) => {
   console.log(post);
+  const [id, setId] = useState(post.id);
   const [name, setName] = useState(post.nama);
   const [nik, setNik] = useState(post.nik);
   const [jabatan, setJabatan] = useState(post.jabatan);
@@ -19,6 +20,7 @@ const Ubah = ({ params, post }: any) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        id,
         name,
         nik,
         jabatan,
