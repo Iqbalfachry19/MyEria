@@ -2,12 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import TimePicker from 'react-time-picker';
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
   const [selectedOption, setSelectedOption] = useState(posts[0].id);
+  const [jamMasuk, setJamMasuk] = useState('10:00');
+  const [jamKeluar, setJamKeluar] = useState('10:00');
 
-  const [nik, setNik] = useState('');
-  const [jabatan, setJabatan] = useState('');
   const router = useRouter();
   const create = async (e: any) => {
     e.preventDefault();
@@ -19,8 +20,7 @@ const Tambah = ({ posts }: any) => {
       body: JSON.stringify({}),
     });
     setSelectedOption(posts[0].id);
-    setJabatan('');
-    setNik('');
+
     router.refresh();
   };
   return (
@@ -39,18 +39,10 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <input
-            type="text"
-            placeholder="Jam Masuk"
-            value={nik}
-            onChange={(e) => setNik(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Jam Keluar"
-            value={jabatan}
-            onChange={(e) => setJabatan(e.target.value)}
-          />
+          <label>Jam Masuk</label>
+          <TimePicker onChange={setJamMasuk} value={jamMasuk} />
+          <label>Jam Keluar</label>
+          <TimePicker onChange={setJamKeluar} value={jamKeluar} />
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>
       </form>
