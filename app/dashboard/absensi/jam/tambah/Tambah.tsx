@@ -40,17 +40,17 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <div>
+          <div className="flex">
             <label>Jam Masuk</label>
             <TimePicker
-              onChange={() => setJamMasuk(jamMasuk)}
+              onChange={(value: any) => setJamMasuk(value)}
               value={jamMasuk}
             />
           </div>
-          <div>
+          <div className="flex">
             <label>Jam Keluar</label>
             <TimePicker
-              onChange={() => setJamKeluar(jamKeluar)}
+              onChange={(value: any) => setJamKeluar(value)}
               value={jamKeluar}
             />
           </div>
