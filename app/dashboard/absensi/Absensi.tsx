@@ -6,21 +6,19 @@ function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
   return fn as (arg: T) => R;
 }
 const getData = async () => {
-  const prisma = new PrismaClient();
-  const posts = await prisma.absensi.findMany({
-    orderBy: {
-      id: 'asc',
-    },
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getIsiAbsensi`, {
+    cache: 'no-store',
   });
+  const posts = await res.json();
   return posts as any[];
 };
 const Absensi = asyncComponent(async (props: Props) => {
   const posts = await getData();
 
   return (
-    <div className="flex">
+    <div className="">
       <div>
-        <h1>List Karyawan</h1>
+        <h1>List Absensi Karyawan</h1>
         <table>
           <thead>
             <tr>
@@ -28,6 +26,8 @@ const Absensi = asyncComponent(async (props: Props) => {
               <th>Nama</th>
               <th>NIK</th>
               <th>Jabatan</th>
+              <th>Jam Masuk</th>
+              <th>Jam Keluar</th>
               <th>Aksi</th>
             </tr>
           </thead>

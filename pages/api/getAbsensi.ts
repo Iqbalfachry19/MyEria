@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   try {
     const prisma = new PrismaClient();
-    const posts = await prisma.karyawan.findMany({
+    const posts = await prisma.absensi.findMany({
       orderBy: {
         id: 'asc',
       },

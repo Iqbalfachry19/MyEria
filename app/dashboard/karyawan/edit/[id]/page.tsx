@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import Ubah from './Ubah';
 const getData = async (params: any) => {
   const res = await fetch(
@@ -12,6 +13,9 @@ const getData = async (params: any) => {
 async function Page({ params }: { params: { id: string } }) {
   const post = await getData(params.id);
   console.log(post);
+  if (!post) {
+    notFound();
+  }
   return (
     <div className="flex flex-col h-screen justify-center items-center">
       <Ubah params={params.id} post={post} />

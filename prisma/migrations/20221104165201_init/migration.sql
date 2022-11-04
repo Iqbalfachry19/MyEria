@@ -11,19 +11,21 @@ CREATE TABLE "Karyawan" (
 -- CreateTable
 CREATE TABLE "Absensi" (
     "id" SERIAL NOT NULL,
-    "idKaryawan" INTEGER NOT NULL,
-    "jamMasuk" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "jamMasuk" TIMESTAMP(3) NOT NULL,
     "jamKeluar" TIMESTAMP(3) NOT NULL,
+    "idKaryawan" INTEGER NOT NULL,
 
     CONSTRAINT "Absensi_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Laporan" (
+CREATE TABLE "IsiAbsensi" (
     "id" SERIAL NOT NULL,
     "idAbsensi" INTEGER NOT NULL,
+    "waktuAbsensiMasuk" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "waktuAbsensiKeluar" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Laporan_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "IsiAbsensi_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -33,10 +35,10 @@ CREATE UNIQUE INDEX "Karyawan_nik_key" ON "Karyawan"("nik");
 CREATE UNIQUE INDEX "Absensi_idKaryawan_key" ON "Absensi"("idKaryawan");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Laporan_idAbsensi_key" ON "Laporan"("idAbsensi");
+CREATE UNIQUE INDEX "IsiAbsensi_idAbsensi_key" ON "IsiAbsensi"("idAbsensi");
 
 -- AddForeignKey
 ALTER TABLE "Absensi" ADD CONSTRAINT "Absensi_idKaryawan_fkey" FOREIGN KEY ("idKaryawan") REFERENCES "Karyawan"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Laporan" ADD CONSTRAINT "Laporan_idAbsensi_fkey" FOREIGN KEY ("idAbsensi") REFERENCES "Absensi"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "IsiAbsensi" ADD CONSTRAINT "IsiAbsensi_idAbsensi_fkey" FOREIGN KEY ("idAbsensi") REFERENCES "Absensi"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

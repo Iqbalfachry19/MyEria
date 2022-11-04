@@ -26,7 +26,7 @@ const Tambah = () => {
     router.refresh();
   };
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <form onSubmit={(e) => create(e)}>
         <h1>Tambah Karyawan</h1>
         <input

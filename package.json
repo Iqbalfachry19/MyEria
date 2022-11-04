@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "@prisma/client": "^4.5.0",
     "@types/react-qr-reader": "^2.1.4",
     "next": "^13.0.1",

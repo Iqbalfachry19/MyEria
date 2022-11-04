@@ -8,27 +8,31 @@ generator client {
 datasource db {
   provider = "postgres"
   url      = env("DATABASE_URL")
+    // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Karyawan {
   id      Int      @id @default(autoincrement())
   nik     String   @unique
   nama    String
-  absensi Absensi?
+
+absensi Absensi?
  jabatan String
 }
 
 model Absensi {
   id         Int      @id @default(autoincrement())
+  jamMasuk  DateTime 
+  jamKeluar DateTime 
   karyawan   Karyawan @relation(fields: [idKaryawan], references: [id])
   idKaryawan Int      @unique
-  jamMasuk  DateTime @default(now())
-  jamKeluar DateTime 
-  Laporan Laporan[]
+  isiAbsensi IsiAbsensi[]
 }
 
-model Laporan {
+model IsiAbsensi {
     id      Int      @id @default(autoincrement())
     absensi   Absensi @relation(fields: [idAbsensi], references: [id])
   idAbsensi Int      @unique
+  waktuAbsensiMasuk DateTime @default(now())
+   waktuAbsensiKeluar DateTime 
 }

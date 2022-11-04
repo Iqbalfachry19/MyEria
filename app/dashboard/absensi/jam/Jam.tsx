@@ -1,25 +1,24 @@
+import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
-
-import Button from './Button';
 type Props = {};
-
+export const dynamic = 'force-dynamic';
 function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
   return fn as (arg: T) => R;
 }
 const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getAbsensi`, {
     cache: 'no-store',
   });
   const posts = await res.json();
   return posts as any[];
 };
-const Karyawan = asyncComponent(async (props: Props) => {
+const Absensi = asyncComponent(async (props: Props) => {
   const posts = await getData();
 
   return (
-    <div className="flex flex-col justify-center items-center  w-full">
+    <div className="">
       <div>
-        <h1>List Karyawan</h1>
+        <h1>List Jam Absensi Karyawan</h1>
         <table>
           <thead>
             <tr>
@@ -27,6 +26,8 @@ const Karyawan = asyncComponent(async (props: Props) => {
               <th>Nama</th>
               <th>NIK</th>
               <th>Jabatan</th>
+              <th>Jam Masuk</th>
+              <th>Jam Keluar</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -37,9 +38,11 @@ const Karyawan = asyncComponent(async (props: Props) => {
                 <td>{post.nama}</td>
                 <td>{post.nik}</td>
                 <td>{post.jabatan}</td>
-                <td className="space-x-2">
+                <td>{post.jabatan}</td>
+                <td>{post.jabatan}</td>
+                <td>
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
-                  <Button id={post.id} />
+                  <button>hapus</button>
                 </td>
               </tr>
             ))}
@@ -50,4 +53,4 @@ const Karyawan = asyncComponent(async (props: Props) => {
   );
 });
 
-export default Karyawan;
+export default Absensi;
