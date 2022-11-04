@@ -48,7 +48,7 @@ const Ubah = ({ params }: any) => {
         <input
           type="text"
           placeholder="Nama"
-          value={name}
+          value={post.name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
