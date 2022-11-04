@@ -36,7 +36,7 @@ const Karyawan = asyncComponent(async (props: Props) => {
                 <td>{post.nama}</td>
                 <td>{post.nik}</td>
                 <td>{post.jabatan}</td>
-                <td>
+                <td className="space-x-2">
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
                   <button>hapus</button>
                 </td>

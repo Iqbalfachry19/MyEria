@@ -1,17 +1,10 @@
 'use client';
 import { useRouter } from 'next/router';
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 
 type Props = {};
-const getData = async (params: any) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/api/getKaryawanById/${params}`,
-  );
-  const post = await res.json();
-  return post as any;
-};
-const Ubah = ({ params }: any) => {
-  const post = use(getData(params));
+
+const Ubah = ({ params, post }: any) => {
   const [name, setName] = useState(post.nama);
   const [nik, setNik] = useState(post.nik);
   const [jabatan, setJabatan] = useState(post.jabatan);
