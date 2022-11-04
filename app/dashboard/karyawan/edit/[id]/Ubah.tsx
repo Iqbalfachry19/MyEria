@@ -11,7 +11,7 @@ const Ubah = ({ params, post }: any) => {
   const [jabatan, setJabatan] = useState(post.jabatan);
   const router = useRouter();
 
-  const edit = async (e: any) => {
+  const edit = async (e: any, params: any) => {
     e.preventDefault();
 
     await fetch(`${process.env.NEXT_PUBLIC_URL}/api/updateKaryawan`, {
@@ -33,7 +33,7 @@ const Ubah = ({ params, post }: any) => {
   };
   return (
     <div>
-      <form onSubmit={(e) => edit(e)}>
+      <form onSubmit={(e) => edit(e, params)}>
         <h1>Edit Karyawan</h1>
         <input
           type="text"
