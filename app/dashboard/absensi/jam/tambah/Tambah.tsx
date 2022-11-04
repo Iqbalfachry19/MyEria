@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css';
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
   const [selectedOption, setSelectedOption] = useState(posts[0].id);
