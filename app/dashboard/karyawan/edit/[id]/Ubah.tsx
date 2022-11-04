@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 type Props = {};
 
 const Ubah = ({ params, post }: any) => {
+  console.log(post);
   const [name, setName] = useState(post.nama);
   const [nik, setNik] = useState(post.nik);
   const [jabatan, setJabatan] = useState(post.jabatan);
