@@ -26,7 +26,7 @@ const Tambah = ({ posts }: any) => {
   };
   return (
     <div className="flex px-2">
-      <form onSubmit={(e) => create(e)}>
+      <form onSubmit={(e) => create(e)} className="w-screen">
         <h1>Tambah Jam Absensi Karyawan</h1>
         <div className="flex flex-col">
           <label>Karyawan</label>
