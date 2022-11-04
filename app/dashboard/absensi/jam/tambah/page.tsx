@@ -10,7 +10,7 @@ async function Page() {
   const posts = await getData();
 
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
+    <div className="flex flex-col w-screen h-screen justify-center items-center">
       <Tambah posts={posts} />
     </div>
   );

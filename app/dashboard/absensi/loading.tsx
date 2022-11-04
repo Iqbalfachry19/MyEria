@@ -1,5 +1,4 @@
 import { SpinnerCircular } from 'spinners-react';
-import 'spinners-react/lib/SpinnerCircular.css';
 
 export default function Loading() {
   return (
