@@ -45,7 +45,6 @@ const Tambah = ({ posts }: any) => {
             <TimePicker
               onChange={(value: any) => setJamMasuk(value)}
               value={jamMasuk}
-              disableClock
             />
           </div>
           <div className="flex flex-col">
@@ -53,7 +52,6 @@ const Tambah = ({ posts }: any) => {
             <TimePicker
               onChange={(value: any) => setJamKeluar(value)}
               value={jamKeluar}
-              disableClock
             />
           </div>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
