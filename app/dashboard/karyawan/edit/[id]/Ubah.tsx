@@ -28,6 +28,7 @@ const Ubah = ({ params, post }: any) => {
     setName('');
     setJabatan('');
     setNik('');
+    router.refresh();
     router.push('/dashboard/karyawan');
   };
   return (
