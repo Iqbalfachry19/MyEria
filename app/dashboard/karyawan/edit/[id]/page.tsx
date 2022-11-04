@@ -2,6 +2,9 @@ import Ubah from './Ubah';
 const getData = async (params: any) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/getKaryawanById/${params}`,
+    {
+      cache: 'no-store',
+    },
   );
   const post = await res.json();
   return post as any;
