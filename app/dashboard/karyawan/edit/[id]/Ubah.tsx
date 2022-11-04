@@ -11,7 +11,7 @@ const Ubah = ({ params, post }: any) => {
   const [jabatan, setJabatan] = useState(post.jabatan);
   const router = useRouter();
 
-  const edit = async (e: any, params: any) => {
+  const edit = async (e: any) => {
     e.preventDefault();
 
     await fetch(`${process.env.NEXT_PUBLIC_URL}/api/updateKaryawan`, {
@@ -20,7 +20,6 @@ const Ubah = ({ params, post }: any) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        params,
         name,
         nik,
         jabatan,
@@ -29,11 +28,11 @@ const Ubah = ({ params, post }: any) => {
     setName('');
     setJabatan('');
     setNik('');
-    router.refresh();
+    router.push('/karyawan');
   };
   return (
     <div>
-      <form onSubmit={(e) => edit(e, params)}>
+      <form onSubmit={(e) => edit(e)}>
         <h1>Edit Karyawan</h1>
         <input
           type="text"
