@@ -6,19 +6,15 @@ type Props = {};
 const getData = async (params: any) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/getKaryawanById/${params}`,
-    {
-      cache: 'no-store',
-    },
   );
   const post = await res.json();
   return post as any;
 };
 const Ubah = ({ params }: any) => {
   const post = use(getData(params));
-  console.log(post);
-  const [name, setName] = useState(post.name);
-  const [nik, setNik] = useState('');
-  const [jabatan, setJabatan] = useState('');
+  const [name, setName] = useState(post.nama);
+  const [nik, setNik] = useState(post.nik);
+  const [jabatan, setJabatan] = useState(post.jabatan);
   const router = useRouter();
 
   const edit = async (e: any) => {
@@ -48,7 +44,7 @@ const Ubah = ({ params }: any) => {
         <input
           type="text"
           placeholder="Nama"
-          value={post.name}
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
