@@ -6,8 +6,7 @@ type Props = {};
 
 const Button = ({ id }: any) => {
   const router = useRouter();
-  const hapus = async (e: any, id: any) => {
-    e.preventDefault();
+  const hapus = async (id: any) => {
     await fetch(`${process.env.NEXT_PUBLIC_URL}/api/deleteKaryawan`, {
       method: 'DELETE',
       headers: {
@@ -20,7 +19,7 @@ const Button = ({ id }: any) => {
 
     router.refresh();
   };
-  return <button onClick={(e) => hapus(e, id)}>hapus</button>;
+  return <button onClick={() => hapus(id)}>hapus</button>;
 };
 
 export default Button;
