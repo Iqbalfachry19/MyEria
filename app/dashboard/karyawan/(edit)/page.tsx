@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 function Page() {
   return (
     <Suspense fallback={<p>loading...</p>}>
-      <Tambah />;
+      <Tambah />
     </Suspense>
   );
 }
