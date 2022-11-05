@@ -17,7 +17,7 @@ async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
+    <div className="flex">
       <Ubah params={params.id} post={post} />
     </div>
   );
