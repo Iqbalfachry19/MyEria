@@ -10,8 +10,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Link href="/dashboard/karyawan/tambah">Tambah karyawan</Link>
       </nav>
       <div className="h-screen flex flex-col  justify-center items-center">
-        {/* @ts-ignore */}
-        <Karyawan />
         <div>{children}</div>
       </div>
     </div>
