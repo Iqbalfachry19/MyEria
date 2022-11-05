@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import Ubah from './Ubah';
 const getData = async (params: any) => {
   const res = await fetch(
