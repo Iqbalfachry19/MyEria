@@ -3,9 +3,7 @@ import Link from 'next/link';
 import Button from './Button';
 type Props = {};
 
-function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
-  return fn as (arg: T) => R;
-}
+
 const getData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`, {
     cache: 'no-store',
@@ -13,7 +11,7 @@ const getData = async () => {
   const posts = await res.json();
   return posts as any[];
 };
-const Karyawan = asyncComponent(async (props: Props) => {
+const Karyawan = async (props: Props) => {
   const posts = await getData();
 
   return (
@@ -48,6 +46,6 @@ const Karyawan = asyncComponent(async (props: Props) => {
       </div>
     </div>
   );
-});
+};
 
 export default Karyawan;

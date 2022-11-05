@@ -2,9 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 type Props = {};
 
-function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
-  return fn as (arg: T) => R;
-}
 const getData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getAbsensi`, {
     cache: 'no-store',
@@ -12,7 +9,7 @@ const getData = async () => {
   const posts = await res.json();
   return posts as any[];
 };
-const Absensi = asyncComponent(async (props: Props) => {
+const Absensi = async (props: Props) => {
   const posts = await getData();
 
   return (
@@ -51,6 +48,6 @@ const Absensi = asyncComponent(async (props: Props) => {
       </div>
     </div>
   );
-});
+};
 
 export default Absensi;
