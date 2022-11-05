@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { PrismaClient } from '@prisma/client';
-import type { NextApiRequest, NextApiResponse } from 'next';
 
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { prisma } from '../../db/db';
 type Data = {
   nama: string | string[] | undefined;
   nik: string | string[] | undefined;
@@ -15,7 +15,7 @@ export default async function handler(
   const nama = req.body.name;
   const nik = req.body.nik;
   const jabatan = req.body.jabatan;
-  const prisma = new PrismaClient();
+
   const user = await prisma.karyawan.create({
     data: {
       nama,

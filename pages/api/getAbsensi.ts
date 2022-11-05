@@ -3,13 +3,12 @@ import { PrismaClient } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {};
-
+import { prisma } from '../../db/db';
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>,
 ) {
   try {
-    const prisma = new PrismaClient();
     const posts = await prisma.absensi.findMany({
       orderBy: {
         id: 'asc',

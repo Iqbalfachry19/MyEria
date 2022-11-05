@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { PrismaClient } from '@prisma/client';
-import type { NextApiRequest, NextApiResponse } from 'next';
 
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { prisma } from '../../db/db';
 type Data = {};
 
 export default async function handler(
@@ -9,7 +9,6 @@ export default async function handler(
   res: NextApiResponse<any>,
 ) {
   try {
-    const prisma = new PrismaClient();
     const posts = await prisma.karyawan.findMany({
       orderBy: {
         id: 'asc',
