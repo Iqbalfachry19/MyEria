@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import Ubah from './Ubah';
 const getData = async (params: any) => {
   const res = await fetch(
@@ -17,9 +18,11 @@ async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
   return (
-    <div className="flex">
-      <Ubah params={params.id} post={post} />
-    </div>
+    <Suspense fallback={<p>loading...</p>}>
+      <div className="flex">
+        <Ubah params={params.id} post={post} />
+      </div>
+    </Suspense>
   );
 }
 
