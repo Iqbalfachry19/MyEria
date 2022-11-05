@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Karyawan from './Karyawan';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +9,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Link href="/dashboard/karyawan">list Karyawan</Link>
         <Link href="/dashboard/karyawan/tambah">Tambah karyawan</Link>
       </nav>
-      <div className="w-full h-full flex flex-col">{children}</div>
+      <div className="h-screen flex flex-col  justify-center items-center">
+        {/* @ts-ignore */}
+        <Karyawan />
+        {children}
+      </div>
     </div>
   );
 }
