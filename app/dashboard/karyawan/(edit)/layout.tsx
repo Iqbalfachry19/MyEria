@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React, { Suspense } from 'react';
 import { SpinnerCircular } from 'spinners-react';
 import Karyawan from './Karyawan';
