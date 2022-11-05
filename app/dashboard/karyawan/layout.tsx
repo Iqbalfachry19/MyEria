@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="h-screen flex flex-col  justify-center items-center">
         {/* @ts-ignore */}
         <Karyawan />
-        {children}
+        <div className="flex-1">{children}</div>
       </div>
     </div>
   );
