@@ -4,7 +4,7 @@ import Karyawan from '../Karyawan';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-screen flex flex-col  justify-center items-center">
+    <div className=" flex flex-col  justify-center items-center">
       {/* @ts-ignore */}
       <Karyawan />
       {children}
