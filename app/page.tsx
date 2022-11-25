@@ -9,11 +9,6 @@ export default function Home() {
         <h1 className={styles.title}>Welcome to My Eria</h1>
 
         <div className={styles.grid}>
-          <Link href="/scan" className={styles.card}>
-            <h2>Scan a qr code&rarr;</h2>
-            <p>Scan a qr code with your camera</p>
-          </Link>
-
           <Link href="/generate" className={styles.card}>
             <h2> Generate a qr code&rarr;</h2>
             <p> Generate a qr code with text or a link</p>

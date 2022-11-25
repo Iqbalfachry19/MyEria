@@ -2,7 +2,6 @@ export default function Head() {
   return (
     <>
       <title>My Eria</title>
-      <link rel="manifest" href="/manifest.json" />
       <link rel="apple-touch-icon" href="/logo.png" />
       <link rel="shortcut icon" href="/logo.png" />
       <meta charSet="UTF-8" />
