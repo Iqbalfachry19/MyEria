@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import TimePicker from 'react-time-picker/dist/entry.nostyle';
+import TimePicker from 'react-time-picker';
 
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
