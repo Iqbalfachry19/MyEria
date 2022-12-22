@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import QRCode from 'qrcode.react';
-import styles from '../page.module.css';
+
 type Props = {};
 
 const Generate = (props: Props) => {
@@ -22,7 +22,9 @@ const Generate = (props: Props) => {
   };
   return (
     <>
-      <div className={styles.card}>Generate QR</div>
+      <div className="border-2  mx-auto mt-10 hover:text-blue-400  hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
+        Generate QR
+      </div>
 
       {qrCodeValue != '' && (
         <QRCode
@@ -34,7 +36,7 @@ const Generate = (props: Props) => {
         />
       )}
       <input
-        className={styles.card}
+        className="outline-none ring-2 ring-gray-100 rounded-lg h-20 mt-10 p-2 hover:ring-blue-400"
         onChange={(e) => {
           setQrCodeValue(e.target.value);
         }}

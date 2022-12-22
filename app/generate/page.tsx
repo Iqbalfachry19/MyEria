@@ -1,8 +1,7 @@
-import styles from '../page.module.css';
 import Generate from './Generate';
 function Page() {
   return (
-    <div className={styles.main}>
+    <div className="flex flex-col h-screen mx-auto items-center justify-center">
       <Generate />
     </div>
   );

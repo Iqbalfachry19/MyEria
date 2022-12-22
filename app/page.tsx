@@ -1,33 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to My Eria</h1>
+    <div className="flex justify-center items-center flex-col mx-auto h-screen">
+      <main className="">
+        <h1 className="text-6xl">Welcome to My Eria</h1>
 
-        <div className={styles.grid}>
-          <Link href="/generate" className={styles.card}>
+        <div className="border-2 w-80 mx-auto mt-10 hover:text-blue-400 hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
+          <Link href="/generate" className="text-2xl space-y-2">
             <h2> Generate a qr code&rarr;</h2>
             <p> Generate a qr code with text or a link</p>
           </Link>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   );
 }

@@ -22,8 +22,8 @@ absensi Absensi?
 
 model Absensi {
   id         Int      @id @default(autoincrement())
-  jamMasuk  DateTime 
-  jamKeluar DateTime 
+  jamMasuk  DateTime @db.Time
+  jamKeluar DateTime @db.Time
   karyawan   Karyawan @relation(fields: [idKaryawan], references: [id])
   idKaryawan Int      @unique
   isiAbsensi IsiAbsensi[]

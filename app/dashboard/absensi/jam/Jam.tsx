@@ -13,7 +13,7 @@ const Absensi = async (props: Props) => {
   const posts = await getData();
 
   return (
-    <div className="">
+    <div className="flex">
       <div>
         <h1>List Jam Absensi Karyawan</h1>
         <table>
@@ -35,8 +35,8 @@ const Absensi = async (props: Props) => {
                 <td>{post.nama}</td>
                 <td>{post.nik}</td>
                 <td>{post.jabatan}</td>
-                <td>{post.jabatan}</td>
-                <td>{post.jabatan}</td>
+                <td>{post.jamMasuk}</td>
+                <td>{post.jamKeluar}</td>
                 <td>
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
                   <button>hapus</button>

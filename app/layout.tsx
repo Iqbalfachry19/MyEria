@@ -1,7 +1,8 @@
-import './globals.css';
+import '../styles/globals.css';
 import 'spinners-react/lib/SpinnerCircular.css';
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
+
 export default function RootLayout({
   children,
 }: {
@@ -9,7 +10,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
       <body>{children}</body>
     </html>
   );
