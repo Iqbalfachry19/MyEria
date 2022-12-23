@@ -6,12 +6,12 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-
+import dayjs, { Dayjs } from 'dayjs';
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
   const [selectedOption, setSelectedOption] = useState(posts[0].id);
-  const [jamMasuk, setJamMasuk] = useState<string | null>('08:00');
-  const [jamKeluar, setJamKeluar] = useState<string | null>('10:00');
+  const [jamMasuk, setJamMasuk] = useState<Dayjs | null>(dayjs('08:00'));
+  const [jamKeluar, setJamKeluar] = useState<Dayjs | null>(dayjs('10:00'));
 
   const router = useRouter();
   const create = async (e: any) => {
