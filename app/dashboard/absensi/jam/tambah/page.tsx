@@ -1,8 +1,6 @@
 import Tambah from './Tambah';
 const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`);
   const posts = await res.json();
   return posts as any[];
 };
