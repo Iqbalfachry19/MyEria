@@ -24,7 +24,7 @@ model Absensi {
   id         Int      @id @default(autoincrement())
   jamMasuk  DateTime @db.Time
   jamKeluar DateTime @db.Time
-  karyawan   Karyawan @relation(fields: [idKaryawan], references: [id])
+  karyawan   Karyawan @relation(fields: [idKaryawan], references: [id], onDelete: Cascade, onUpdate: Cascade)
   idKaryawan Int      
   isiAbsensi IsiAbsensi[]
 }

@@ -13,6 +13,9 @@ export default async function handler(
       orderBy: {
         id: 'asc',
       },
+      include: {
+        karyawan: true,
+      },
     });
     res.status(200).json(posts);
   } catch (err) {

@@ -15,7 +15,7 @@ const Absensi = async (props: Props) => {
   return (
     <div className="flex">
       <div>
-        <h1>List Jam Absensi Karyawan</h1>
+        <h1>Jadwal Absensi Karyawan</h1>
         <table>
           <thead>
             <tr>
@@ -32,9 +32,9 @@ const Absensi = async (props: Props) => {
             {posts.map((post: any, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
-                <td>{post.nama}</td>
-                <td>{post.nik}</td>
-                <td>{post.jabatan}</td>
+                <td>{post.karyawan.nama}</td>
+                <td>{post.karyawan.nik}</td>
+                <td>{post.karyawan.jabatan}</td>
                 <td>{moment(post.jamMasuk).utcOffset(0).format('hh:mm A')}</td>
                 <td>{moment(post.jamKeluar).utcOffset(0).format('hh:mm A')}</td>
                 <td>

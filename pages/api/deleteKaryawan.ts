@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const id = req.body.id;
-
+  console.log(id);
   const posts = await prisma.karyawan.delete({
     where: {
       id,

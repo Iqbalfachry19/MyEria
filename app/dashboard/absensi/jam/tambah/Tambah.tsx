@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useRouter } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs, { Dayjs } from 'dayjs';
 const Tambah = ({ posts }: any) => {
@@ -51,35 +51,34 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <Suspense>
-            <div className="flex flex-col mt-10">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Jam Keluar"
-                  value={jamMasuk}
-                  onChange={(newValue) => {
-                    setJamMasuk(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div>
-          </Suspense>
-          <Suspense>
-            <div className="flex flex-col mt-10">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Jam Keluar"
-                  value={jamKeluar}
-                  onChange={(newValue) => {
-                    console.log(newValue);
-                    setJamKeluar(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div>
-          </Suspense>
+
+          <div className="flex flex-col mt-10">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <TimePicker
+                label="Jam Keluar"
+                value={jamMasuk}
+                onChange={(newValue) => {
+                  setJamMasuk(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+
+          <div className="flex flex-col mt-10">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <TimePicker
+                label="Jam Keluar"
+                value={jamKeluar}
+                onChange={(newValue) => {
+                  console.log(newValue);
+                  setJamKeluar(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>
       </form>
