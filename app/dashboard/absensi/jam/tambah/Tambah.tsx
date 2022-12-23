@@ -43,7 +43,7 @@ const Tambah = ({ posts }: any) => {
               </option>
             ))}
           </select>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-10">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <TimePicker
                 label="Jam Keluar"
@@ -55,7 +55,7 @@ const Tambah = ({ posts }: any) => {
               />
             </LocalizationProvider>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-10">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <TimePicker
                 label="Jam Keluar"
