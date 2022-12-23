@@ -33,21 +33,21 @@ const Tambah = ({ posts }: any) => {
   };
   return (
     <div className="flex px-2">
-      <Suspense>
-        <form onSubmit={(e) => create(e)} className="">
-          <h1>Tambah Jam Absensi Karyawan</h1>
-          <div className="flex flex-col">
-            <label>Karyawan</label>
-            <select
-              value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
-            >
-              {datas.map((post: any) => (
-                <option key={post.id} value={post.id}>
-                  {post.nama}
-                </option>
-              ))}
-            </select>
+      <form onSubmit={(e) => create(e)} className="">
+        <h1>Tambah Jam Absensi Karyawan</h1>
+        <div className="flex flex-col">
+          <label>Karyawan</label>
+          <select
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)}
+          >
+            {datas.map((post: any) => (
+              <option key={post.id} value={post.id}>
+                {post.nama}
+              </option>
+            ))}
+          </select>
+          <Suspense>
             <div className="flex flex-col mt-10">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <TimePicker
@@ -60,23 +60,25 @@ const Tambah = ({ posts }: any) => {
                 />
               </LocalizationProvider>
             </div>
-            <div className="flex flex-col mt-10">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Jam Keluar"
-                  value={jamKeluar}
-                  onChange={(newValue) => {
-                    console.log(newValue);
-                    setJamKeluar(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div>
-            <button type="submit">Tambah Jam Absensi Karyawan</button>
+        
+          <Suspense>
+          <div className="flex flex-col mt-10">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <TimePicker
+                label="Jam Keluar"
+                value={jamKeluar}
+                onChange={(newValue) => {
+                  console.log(newValue);
+                  setJamKeluar(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </div>
-        </form>
-      </Suspense>
+          </Suspense>
+          <button type="submit">Tambah Jam Absensi Karyawan</button>
+        </div>
+      </form>
     </div>
   );
 };
