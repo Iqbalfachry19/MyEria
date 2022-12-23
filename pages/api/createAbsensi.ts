@@ -14,11 +14,15 @@ export default async function handler(
 ) {
   const jamMasuk = req.body.jamMasuk;
   const jamKeluar = req.body.jamKeluar;
-  const idKaryawan = req.body.idKaryawa;
+  const idKaryawan = req.body.idKaryawan;
+  var date = new Date(jamMasuk);
+  date.setHours(date.getHours() + 7);
+  var date1 = new Date(jamKeluar);
+  date1.setHours(date1.getHours() + 7);
   const user = await prisma.absensi.create({
     data: {
-      jamMasuk,
-      jamKeluar,
+      jamMasuk: date,
+      jamKeluar: date1,
       idKaryawan,
     },
   });

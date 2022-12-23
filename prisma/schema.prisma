@@ -16,7 +16,7 @@ model Karyawan {
   nik     String   @unique
   nama    String
 
-absensi Absensi?
+absensi Absensi[]
  jabatan String
 }
 
@@ -25,7 +25,7 @@ model Absensi {
   jamMasuk  DateTime @db.Time
   jamKeluar DateTime @db.Time
   karyawan   Karyawan @relation(fields: [idKaryawan], references: [id])
-  idKaryawan Int      @unique
+  idKaryawan Int      
   isiAbsensi IsiAbsensi[]
 }
 

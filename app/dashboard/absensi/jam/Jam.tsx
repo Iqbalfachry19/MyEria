@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 type Props = {};
-
+import moment from 'moment';
 const getData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getAbsensi`, {
     cache: 'no-store',
@@ -35,8 +35,8 @@ const Absensi = async (props: Props) => {
                 <td>{post.nama}</td>
                 <td>{post.nik}</td>
                 <td>{post.jabatan}</td>
-                <td>{post.jamMasuk}</td>
-                <td>{post.jamKeluar}</td>
+                <td>{moment(post.jamMasuk).utcOffset(0).format('hh:mm A')}</td>
+                <td>{moment(post.jamKeluar).utcOffset(0).format('hh:mm A')}</td>
                 <td>
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
                   <button>hapus</button>

@@ -25,7 +25,11 @@ const Tambah = ({ posts }: any) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        idKaryawan: posts[0].id,
+        jamMasuk,
+        jamKeluar,
+      }),
     });
     setSelectedOption(posts[0].id);
 

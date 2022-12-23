@@ -6,6 +6,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import moment from 'moment';
 
 import Link from 'next/link';
 import { use, useReducer, useState, Suspense } from 'react';
@@ -41,7 +42,7 @@ const columns = [
   }),
   columnHelper.accessor('waktuAbsensiMasuk', {
     header: 'Scan Masuk',
-    cell: (info) => info.renderValue(),
+    cell: (info) => <span>{moment(info.getValue()).format('hh:mm')}</span>,
   }),
   columnHelper.accessor('waktuAbsensiKeluar', {
     header: 'Scan Keluar',
