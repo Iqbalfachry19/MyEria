@@ -60,21 +60,21 @@ const Tambah = ({ posts }: any) => {
                 />
               </LocalizationProvider>
             </div>
-        
+          </Suspense>
           <Suspense>
-          <div className="flex flex-col mt-10">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <TimePicker
-                label="Jam Keluar"
-                value={jamKeluar}
-                onChange={(newValue) => {
-                  console.log(newValue);
-                  setJamKeluar(newValue);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-          </div>
+            <div className="flex flex-col mt-10">
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <TimePicker
+                  label="Jam Keluar"
+                  value={jamKeluar}
+                  onChange={(newValue) => {
+                    console.log(newValue);
+                    setJamKeluar(newValue);
+                  }}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+            </div>
           </Suspense>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>
