@@ -1,14 +1,17 @@
 'use client';
 
+import { TextField } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import TimePicker from 'react-time-picker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
   const [selectedOption, setSelectedOption] = useState(posts[0].id);
-  const [jamMasuk, setJamMasuk] = useState('10:00');
-  const [jamKeluar, setJamKeluar] = useState('10:00');
+  const [jamMasuk, setJamMasuk] = useState<string | null>('08:00');
+  const [jamKeluar, setJamKeluar] = useState<string | null>('10:00');
 
   const router = useRouter();
   const create = async (e: any) => {
@@ -41,18 +44,29 @@ const Tambah = ({ posts }: any) => {
             ))}
           </select>
           <div className="flex flex-col">
-            <label>Jam Masuk</label>
-            <TimePicker
-              onChange={(value: any) => setJamMasuk(value)}
-              value={jamMasuk}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <TimePicker
+                label="Jam Keluar"
+                value={jamMasuk}
+                onChange={(newValue) => {
+                  setJamMasuk(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </div>
           <div className="flex flex-col">
-            <label>Jam Keluar</label>
-            <TimePicker
-              onChange={(value: any) => setJamKeluar(value)}
-              value={jamKeluar}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <TimePicker
+                label="Jam Keluar"
+                value={jamKeluar}
+                onChange={(newValue) => {
+                  console.log(newValue);
+                  setJamKeluar(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </div>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>

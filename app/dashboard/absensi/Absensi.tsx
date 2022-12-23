@@ -1,5 +1,5 @@
 'use client';
-import { PrismaClient } from '@prisma/client';
+
 import {
   createColumnHelper,
   flexRender,
@@ -9,54 +9,57 @@ import {
 
 import Link from 'next/link';
 import { use, useReducer, useState, Suspense } from 'react';
-type Props = {};
-export const dynamic = 'force-dynamic';
+type Props = {
+  posts: any;
+};
+
 type Absensi = {
-  no: number;
+  id: number;
   nama: string;
   nik: string;
   jabatan: number;
-  jamMasuk: number;
-  jamKeluar: string;
+  waktuAbsensiMasuk: Date;
+  waktuAbsensiKeluar: Date;
   aksi: string;
 };
 const columnHelper = createColumnHelper<Absensi>();
 const columns = [
-  columnHelper.accessor('no', {
-    cell: (info) => info.getValue(),
+  columnHelper.accessor('id', {
+    header: () => <span>No</span>,
+    cell: (info) => info.renderValue(),
   }),
   columnHelper.accessor('nama', {
     cell: (info) => info.getValue(),
   }),
   columnHelper.accessor('nik', {
     cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
+    header: () => <span>NIK</span>,
   }),
   columnHelper.accessor('jabatan', {
     header: () => 'Jabatan',
     cell: (info) => info.renderValue(),
   }),
-  columnHelper.accessor('jamMasuk', {
+  columnHelper.accessor('waktuAbsensiMasuk', {
     header: 'Scan Masuk',
+    cell: (info) => info.renderValue(),
   }),
-  columnHelper.accessor('jamKeluar', {
+  columnHelper.accessor('waktuAbsensiKeluar', {
     header: 'Scan Keluar',
   }),
-  columnHelper.accessor('aksi', {
+  columnHelper.accessor('id', {
     header: 'Aksi',
+    cell: (info) => (
+      <div className="space-x-2">
+        <Link href={`/dashboard/karyawan/edit/${info.getValue()}`}>edit</Link>
+        <button className="bg-red-500 text-white rounded-lg p-2">hapus</button>
+      </div>
+    ),
   }),
 ];
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getIsiAbsensi`, {
-    cache: 'no-store',
-  });
 
-  return res.json();
-};
-const Absensi = (props: Props) => {
-  const posts = use(getData());
+const Absensi = ({ posts }: Props) => {
   const [data, setData] = useState(() => [...posts]);
-
+  console.log(data);
   const table = useReactTable({
     data,
     columns,
@@ -67,12 +70,12 @@ const Absensi = (props: Props) => {
       <div>
         <h1>List Absensi Karyawan</h1>
         <Suspense>
-          <table>
+          <table className="border-2 border-black">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
-                    <th key={header.id}>
+                    <th key={header.id} className="border-2 border-black">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -88,7 +91,7 @@ const Absensi = (props: Props) => {
               {table.getRowModel().rows.map((row) => (
                 <tr key={row.id}>
                   {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id}>
+                    <td key={cell.id} className="border-2 border-black">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),
