@@ -13,6 +13,13 @@ export default async function handler(
       orderBy: {
         id: 'asc',
       },
+      include: {
+        absensi: {
+          include: {
+            karyawan: true,
+          },
+        },
+      },
     });
     res.status(200).json(posts);
   } catch (err) {

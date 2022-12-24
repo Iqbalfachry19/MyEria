@@ -16,12 +16,18 @@ type Props = {
 
 type Absensi = {
   id: number;
-  nama: string;
   nik: string;
   jabatan: number;
   waktuAbsensiMasuk: Date;
   waktuAbsensiKeluar: Date;
   aksi: string;
+  absensi: {
+    karyawan: {
+      nama: string;
+      nik: string;
+      jabatan: string;
+    };
+  };
 };
 const columnHelper = createColumnHelper<Absensi>();
 const columns = [
@@ -29,20 +35,23 @@ const columns = [
     header: () => <span>No</span>,
     cell: (info) => info.renderValue(),
   }),
-  columnHelper.accessor('nama', {
-    cell: (info) => info.getValue(),
+  columnHelper.accessor('absensi.karyawan.nama', {
+    header: () => <span>Nama</span>,
+    cell: (info) => <span>{info.getValue()}</span>,
   }),
-  columnHelper.accessor('nik', {
-    cell: (info) => <i>{info.getValue()}</i>,
+  columnHelper.accessor('absensi.karyawan.nik', {
+    cell: (info) => <span>{info.getValue()}</span>,
     header: () => <span>NIK</span>,
   }),
-  columnHelper.accessor('jabatan', {
+  columnHelper.accessor('absensi.karyawan.jabatan', {
     header: () => 'Jabatan',
-    cell: (info) => info.renderValue(),
+    cell: (info) => <span>{info.getValue()}</span>,
   }),
   columnHelper.accessor('waktuAbsensiMasuk', {
     header: 'Scan Masuk',
-    cell: (info) => <span>{moment(info.getValue()).format('hh:mm')}</span>,
+    cell: (info) => (
+      <span>{moment(info.getValue()).utcOffset(0).format('hh:mm')}</span>
+    ),
   }),
   columnHelper.accessor('waktuAbsensiKeluar', {
     header: 'Scan Keluar',

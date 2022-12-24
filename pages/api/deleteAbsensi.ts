@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const id = req.body.id;
 
-  const posts = await prisma.karyawan.delete({
+  const posts = await prisma.absensi.delete({
     where: {
       id,
     },

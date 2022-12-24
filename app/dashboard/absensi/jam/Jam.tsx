@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
+import Button from './Button';
 type Props = {};
 import moment from 'moment';
 const getData = async () => {
@@ -38,8 +39,10 @@ const Absensi = async (props: Props) => {
                 <td>{moment(post.jamMasuk).utcOffset(0).format('hh:mm A')}</td>
                 <td>{moment(post.jamKeluar).utcOffset(0).format('hh:mm A')}</td>
                 <td>
-                  <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
-                  <button>hapus</button>
+                  <Link href={`/dashboard/karyawan/edit/${post.idKaryawan}`}>
+                    edit
+                  </Link>
+                  <Button id={post.id}>hapus</Button>
                 </td>
               </tr>
             ))}
