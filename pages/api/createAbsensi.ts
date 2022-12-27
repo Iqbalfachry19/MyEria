@@ -5,7 +5,7 @@ import { prisma } from '../../db/db';
 type Data = {
   nama: string | string[] | undefined;
   nik: string | string[] | undefined;
-  jabatan: string | string[] | undefined;
+  department: string | string[] | undefined;
 };
 
 export default async function handler(

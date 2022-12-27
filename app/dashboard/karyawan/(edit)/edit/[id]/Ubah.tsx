@@ -9,7 +9,7 @@ const Ubah = ({ params, post }: any) => {
   const [id, setId] = useState(post.id);
   const [name, setName] = useState(post.nama);
   const [nik, setNik] = useState(post.nik);
-  const [jabatan, setJabatan] = useState(post.jabatan);
+  const [department, setDepartment] = useState(post.department);
   const router = useRouter();
 
   const edit = async (e: any) => {
@@ -23,11 +23,11 @@ const Ubah = ({ params, post }: any) => {
         id,
         name,
         nik,
-        jabatan,
+        department,
       }),
     });
     setName('');
-    setJabatan('');
+    setDepartment('');
     setNik('');
     router.push('/dashboard/karyawan');
     router.refresh();
@@ -50,9 +50,9 @@ const Ubah = ({ params, post }: any) => {
         />
         <input
           type="text"
-          placeholder="Jabatan"
-          value={jabatan}
-          onChange={(e) => setJabatan(e.target.value)}
+          placeholder="Department"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
         />
         <button type="submit">Ubah Karyawan</button>
       </form>

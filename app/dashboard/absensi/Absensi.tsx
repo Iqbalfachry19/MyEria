@@ -17,7 +17,7 @@ type Props = {
 type Absensi = {
   id: number;
   nik: string;
-  jabatan: number;
+  department: string;
   waktuAbsensiMasuk: Date;
   waktuAbsensiKeluar: Date;
   aksi: string;
@@ -25,7 +25,7 @@ type Absensi = {
     karyawan: {
       nama: string;
       nik: string;
-      jabatan: string;
+      department: string;
     };
   };
 };
@@ -43,8 +43,8 @@ const columns = [
     cell: (info) => <span>{info.getValue()}</span>,
     header: () => <span>NIK</span>,
   }),
-  columnHelper.accessor('absensi.karyawan.jabatan', {
-    header: () => 'Jabatan',
+  columnHelper.accessor('absensi.karyawan.department', {
+    header: () => 'Department',
     cell: (info) => <span>{info.getValue()}</span>,
   }),
   columnHelper.accessor('waktuAbsensiMasuk', {

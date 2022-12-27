@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const nama = req.body.name;
   const nik = req.body.nik;
-  const jabatan = req.body.jabatan;
+  const department = req.body.department;
   const id = req.body.id;
 
   const posts = await prisma.karyawan.update({
@@ -20,7 +20,7 @@ export default async function handler(
     data: {
       nama,
       nik,
-      jabatan,
+      department,
     },
   });
 
