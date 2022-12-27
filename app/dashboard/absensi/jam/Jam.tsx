@@ -23,7 +23,7 @@ const Absensi = async (props: Props) => {
               <th>No</th>
               <th>Nama</th>
               <th>NIK</th>
-              <th>Jabatan</th>
+              <th>Department</th>
               <th>Jam Masuk</th>
               <th>Jam Keluar</th>
               <th>Aksi</th>
@@ -35,7 +35,7 @@ const Absensi = async (props: Props) => {
                 <td>{i + 1}</td>
                 <td>{post.karyawan.nama}</td>
                 <td>{post.karyawan.nik}</td>
-                <td>{post.karyawan.jabatan}</td>
+                <td>{post.karyawan.department}</td>
                 <td>{moment(post.jamMasuk).utcOffset(0).format('hh:mm A')}</td>
                 <td>{moment(post.jamKeluar).utcOffset(0).format('hh:mm A')}</td>
                 <td>
