@@ -13,6 +13,7 @@ const Generate = (props: Props) => {
     const pngUrl = canvas
       .toDataURL('image/png')
       .replace('image/png', 'image/octet-stream');
+
     let downloadLink = document.createElement('a');
     downloadLink.href = pngUrl;
     downloadLink.download = `${qrCodeValue}.png`;

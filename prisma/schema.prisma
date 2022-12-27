@@ -8,16 +8,20 @@ generator client {
 datasource db {
   provider = "postgres"
   url      = env("DATABASE_URL")
-    // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Karyawan {
   id      Int      @id @default(autoincrement())
   nik     String   @unique
   nama    String
-
+department String
+username String
+password String
+hp String
+alamat String
 absensi Absensi[]
- jabatan String
+ 
 }
 
 model Absensi {
@@ -27,6 +31,7 @@ model Absensi {
   karyawan   Karyawan @relation(fields: [idKaryawan], references: [id], onDelete: Cascade, onUpdate: Cascade)
   idKaryawan Int      
   isiAbsensi IsiAbsensi[]
+  bulan DateTime @default(now())
 }
 
 model IsiAbsensi {

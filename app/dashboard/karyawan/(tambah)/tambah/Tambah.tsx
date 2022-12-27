@@ -5,7 +5,11 @@ import { useState } from 'react';
 const Tambah = () => {
   const [name, setName] = useState('');
   const [nik, setNik] = useState('');
-  const [jabatan, setJabatan] = useState('');
+  const [department, setDepartment] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [hp, setHp] = useState('');
+  const [alamat, setAlamat] = useState('');
   const router = useRouter();
   const create = async (e: any) => {
     e.preventDefault();
@@ -17,12 +21,20 @@ const Tambah = () => {
       body: JSON.stringify({
         name,
         nik,
-        jabatan,
+        username,
+        password,
+        hp,
+        alamat,
+        department,
       }),
     });
     setName('');
-    setJabatan('');
+    setDepartment('');
     setNik('');
+    setUsername('');
+    setPassword('');
+    setAlamat('');
+    setHp('');
     router.refresh();
   };
   return (
@@ -43,9 +55,33 @@ const Tambah = () => {
         />
         <input
           type="text"
-          placeholder="Jabatan"
-          value={jabatan}
-          onChange={(e) => setJabatan(e.target.value)}
+          placeholder="Department"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="HP"
+          value={hp}
+          onChange={(e) => setHp(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Alamat"
+          value={alamat}
+          onChange={(e) => setAlamat(e.target.value)}
         />
         <button type="submit">Tambah Karyawan</button>
       </form>

@@ -23,7 +23,11 @@ const Karyawan = async (props: Props) => {
               <th>No</th>
               <th>Nama</th>
               <th>NIK</th>
-              <th>Jabatan</th>
+              <th>Department</th>
+              <th>No HP</th>
+              <th>Alamat</th>
+              <th>Username</th>
+
               <th>Aksi</th>
             </tr>
           </thead>
@@ -33,7 +37,11 @@ const Karyawan = async (props: Props) => {
                 <td>{i + 1}</td>
                 <td>{post.nama}</td>
                 <td>{post.nik}</td>
-                <td>{post.jabatan}</td>
+                <td>{post.department}</td>
+                <td>{post.hp}</td>
+                <td>{post.alamat}</td>
+                <td>{post.username}</td>
+
                 <td className="space-x-2">
                   <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
                   <Button id={post.id} />
