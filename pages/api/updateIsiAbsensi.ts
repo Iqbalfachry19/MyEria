@@ -8,24 +8,14 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const nama = req.body.name;
-  const nik = req.body.nik;
-  const department = req.body.department;
+  const waktuAbsensiKeluar = req.body.waktuAbsensiKeluar;
   const id = req.body.id;
-  const hp = req.body.hp;
-  const alamat = req.body.alamat;
-  const username = req.body.username;
-  const posts = await prisma.karyawan.update({
+  const posts = await prisma.isiAbsensi.update({
     where: {
       id,
     },
     data: {
-      nama,
-      nik,
-      department,
-      hp,
-      alamat,
-      username,
+      waktuAbsensiKeluar,
     },
   });
 

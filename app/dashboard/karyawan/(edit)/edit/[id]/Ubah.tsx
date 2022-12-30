@@ -10,6 +10,9 @@ const Ubah = ({ params, post }: any) => {
   const [name, setName] = useState(post.nama);
   const [nik, setNik] = useState(post.nik);
   const [department, setDepartment] = useState(post.department);
+  const [hp, setHp] = useState(post.hp);
+  const [alamat, setAlamat] = useState(post.alamat);
+  const [username, setUsername] = useState(post.username);
   const router = useRouter();
 
   const edit = async (e: any) => {
@@ -53,6 +56,24 @@ const Ubah = ({ params, post }: any) => {
           placeholder="Department"
           value={department}
           onChange={(e) => setDepartment(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="No HP"
+          value={hp}
+          onChange={(e) => setHp(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Alamat"
+          value={alamat}
+          onChange={(e) => setAlamat(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <button type="submit">Ubah Karyawan</button>
       </form>
