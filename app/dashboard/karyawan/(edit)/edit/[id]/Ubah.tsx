@@ -27,11 +27,18 @@ const Ubah = ({ params, post }: any) => {
         name,
         nik,
         department,
+        hp,
+        alamat,
+        username,
       }),
     });
     setName('');
     setDepartment('');
     setNik('');
+    setHp('');
+    setAlamat('');
+    setUsername('');
+
     router.push('/dashboard/karyawan');
     router.refresh();
   };
