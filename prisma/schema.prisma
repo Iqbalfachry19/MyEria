@@ -44,3 +44,8 @@ tanggal String
 status String 
 
 }
+model Pengumuman{
+   id      Int      @id @default(autoincrement())
+   title String
+   body String
+}
