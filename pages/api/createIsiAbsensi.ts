@@ -21,7 +21,7 @@ export default async function handler(
     data: {
       absensi: {
         connect: {
-          id: idAbsensi,
+          id: Number(idAbsensi),
         },
       },
       pukul,
