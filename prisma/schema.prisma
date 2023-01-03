@@ -38,9 +38,9 @@ model IsiAbsensi {
     id      Int      @id @default(autoincrement())
     absensi   Absensi @relation(fields: [idAbsensi], references: [id])
   idAbsensi Int      @unique
-pukul DateTime @db.Time
+pukul String
 lokasi String
-tanggal DateTime @db.Date
+tanggal String
 status String @default("in")
 
 }
