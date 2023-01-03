@@ -11,7 +11,7 @@ export default async function handler(
   try {
     const posts = await prisma.isiAbsensi.findMany({
       orderBy: {
-        id: 'asc',
+        id: 'desc',
       },
       include: {
         absensi: {
