@@ -12,15 +12,18 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const jamKeluar = req.body.jamKeluar;
   const idAbsensi = req.body.idAbsensi;
-
-  var date = new Date(jamKeluar);
-  date.setHours(date.getHours() + 7);
+  const pukul = req.body.pukul;
+  const lokasi = req.body.lokasi;
+  const tanggal = req.body.tanggal;
+  const status = req.body.status;
   const user = await prisma.isiAbsensi.create({
     data: {
       idAbsensi,
-      waktuAbsensiKeluar: date,
+      pukul,
+      lokasi,
+      tanggal,
+      status,
     },
   });
   res.status(200).json(user);
