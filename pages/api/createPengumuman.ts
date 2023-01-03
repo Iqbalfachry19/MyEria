@@ -3,19 +3,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as argon2 from 'argon2';
 import { prisma } from '../../db/db';
-type Data = {
-  nama: string | string[] | undefined;
-  nik: string | string[] | undefined;
-  department: string | string[] | undefined;
-  username: string | string[] | undefined;
-  password: string | string[] | undefined;
-  hp: string | string[] | undefined;
-  alamat: string | string[] | undefined;
-};
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse,
 ) {
   const title = req.body.title;
   const body = req.body.body;
