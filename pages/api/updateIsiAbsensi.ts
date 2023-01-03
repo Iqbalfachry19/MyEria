@@ -8,15 +8,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const waktuAbsensiKeluar = req.body.waktuAbsensiKeluar;
   const id = req.body.id;
   const posts = await prisma.isiAbsensi.update({
     where: {
       id,
     },
-    data: {
-      waktuAbsensiKeluar,
-    },
+    data: {},
   });
 
   res.status(200).json(posts);
