@@ -41,6 +41,6 @@ model IsiAbsensi {
 pukul String
 lokasi String
 tanggal String
-status String @default("in")
+status String 
 
 }
