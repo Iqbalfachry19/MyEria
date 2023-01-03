@@ -37,7 +37,7 @@ model Absensi {
 model IsiAbsensi {
     id      Int      @id @default(autoincrement())
     absensi   Absensi @relation(fields: [idAbsensi], references: [id])
-  idAbsensi Int      @unique
+  idAbsensi Int     
 pukul String
 lokasi String
 tanggal String
