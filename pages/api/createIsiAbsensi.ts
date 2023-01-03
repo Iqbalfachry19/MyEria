@@ -19,7 +19,11 @@ export default async function handler(
   const status = req.body.status;
   const user = await prisma.isiAbsensi.create({
     data: {
-      idAbsensi,
+      absensi: {
+        connect: {
+          id: idAbsensi,
+        },
+      },
       pukul,
       lokasi,
       tanggal,
