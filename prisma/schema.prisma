@@ -16,7 +16,7 @@ model Karyawan {
   nik     String   @unique
   nama    String
 department String
-username String
+username String @unique
 password String
 hp String
 alamat String
