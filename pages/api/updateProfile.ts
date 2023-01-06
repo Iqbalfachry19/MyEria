@@ -8,8 +8,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const nama = req.body.name;
-
   const department = req.body.department;
   const id = req.body.id;
   const hp = req.body.hp;
@@ -20,12 +18,9 @@ export default async function handler(
       id,
     },
     data: {
-      nama,
-      nik,
       department,
       hp,
       alamat,
-      username,
     },
   });
 
