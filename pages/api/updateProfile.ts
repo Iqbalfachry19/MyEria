@@ -15,7 +15,7 @@ export default async function handler(
 
   const posts = await prisma.karyawan.update({
     where: {
-      id,
+      id:Number(id),
     },
     data: {
       department,

@@ -14,7 +14,7 @@ export default async function handler(
   const hashedPassword = await argon2.hash(password);
   const posts = await prisma.karyawan.update({
     where: {
-      id,
+      id:Number(id),
     },
     data: {
       password: hashedPassword,
