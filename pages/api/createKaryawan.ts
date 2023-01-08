@@ -3,6 +3,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as argon2 from 'argon2';
 import { prisma } from '../../db/db';
+import { Prisma } from '@prisma/client';
 type Data = {
   nama: string | string[] | undefined;
   nik: string | string[] | undefined;
@@ -39,6 +40,17 @@ export default async function handler(
     });
     res.status(200).json(user);
   } catch (err) {
-    res.status(500).json({ message: 'Error connecting to db', err });
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      // The .code property can be accessed in a type-safe manner
+      if (err.code === 'P2002') {
+        res.status(500).json({
+          message: 'username atau nik sudah terpakai',
+        });
+        console.log(
+          'There is a unique constraint violation, a new user cannot be created with this email',
+        );
+      }
+    }
+    res.status(500).json({ message: err });
   }
 }
