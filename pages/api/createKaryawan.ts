@@ -15,7 +15,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<any>,
 ) {
   const nama = req.body.name;
   const nik = req.body.nik;
@@ -25,17 +25,20 @@ export default async function handler(
   const hp = req.body.hp;
   const alamat = req.body.alamat;
   const hashedPassword = await argon2.hash(password);
-
-  const user = await prisma.karyawan.create({
-    data: {
-      nama,
-      nik,
-      username,
-      password: hashedPassword,
-      hp,
-      alamat,
-      department,
-    },
-  });
-  res.status(200).json(user);
+  try {
+    const user = await prisma.karyawan.create({
+      data: {
+        nama,
+        nik,
+        username,
+        password: hashedPassword,
+        hp,
+        alamat,
+        department,
+      },
+    });
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 }
