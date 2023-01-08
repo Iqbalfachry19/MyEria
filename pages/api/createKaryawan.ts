@@ -43,7 +43,7 @@ export default async function handler(
     if (err instanceof Prisma.PrismaClientKnownRequestError) {
       // The .code property can be accessed in a type-safe manner
       if (err.code === 'P2002') {
-        res.status(500).json({
+        res.status(400).json({
           message: 'username atau nik sudah terpakai',
         });
         console.log('username atau nik sudah terpakai');
