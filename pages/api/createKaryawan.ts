@@ -46,11 +46,8 @@ export default async function handler(
         res.status(500).json({
           message: 'username atau nik sudah terpakai',
         });
-        console.log(
-          'There is a unique constraint violation, a new user cannot be created with this email',
-        );
+        console.log('username atau nik sudah terpakai');
       }
     }
-    res.status(500).json({ message: err });
   }
 }
