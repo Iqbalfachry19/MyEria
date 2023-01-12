@@ -1,7 +1,7 @@
 'use client';
 
 import { TextField } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -13,6 +13,7 @@ const Tambah = ({ posts }: any) => {
   const [jamMasuk, setJamMasuk] = useState<Dayjs | null>(
     dayjs('2022-12-23T08:00'),
   );
+  const [tanggal, setTanggal] = useState<Dayjs | null>(dayjs(new Date()));
   const [jamKeluar, setJamKeluar] = useState<Dayjs | null>(
     dayjs('2022-12-23T10:00'),
   );
@@ -29,6 +30,7 @@ const Tambah = ({ posts }: any) => {
         idKaryawan: posts[0].id,
         jamMasuk,
         jamKeluar,
+        tanggal,
       }),
     });
     setSelectedOption(posts[0].id);
@@ -78,7 +80,18 @@ const Tambah = ({ posts }: any) => {
               />
             </LocalizationProvider>
           </div>
-
+          <div className="flex flex-col mt-10">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Basic example"
+                value={tanggal}
+                onChange={(newValue) => {
+                  setTanggal(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
           <button type="submit">Tambah Jam Absensi Karyawan</button>
         </div>
       </form>

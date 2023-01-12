@@ -31,7 +31,7 @@ model Absensi {
   karyawan   Karyawan @relation(fields: [idKaryawan], references: [id], onDelete: Cascade, onUpdate: Cascade)
   idKaryawan Int      
   isiAbsensi IsiAbsensi[]
-  bulan DateTime @default(now())
+  tanggal DateTime @db.Date @default(now())
 }
 
 model IsiAbsensi {

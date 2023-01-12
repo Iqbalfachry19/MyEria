@@ -14,7 +14,9 @@ export default async function handler(
 ) {
   const jamMasuk = req.body.jamMasuk;
   const jamKeluar = req.body.jamKeluar;
+  const tanggal = req.body.tanggal;
   const idKaryawan = req.body.idKaryawan;
+  var date2 = new Date(tanggal);
   var date = new Date(jamMasuk);
   date.setHours(date.getHours() + 7);
   var date1 = new Date(jamKeluar);
@@ -24,6 +26,7 @@ export default async function handler(
       jamMasuk: date,
       jamKeluar: date1,
       idKaryawan,
+      tanggal: date2,
     },
   });
   res.status(200).json(user);
