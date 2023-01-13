@@ -42,7 +42,7 @@ pukul String
 lokasi String
 tanggal String
 status String 
-
+keterangan String? @default("sukses")
 }
 model Pengumuman{
    id      Int      @id @default(autoincrement())

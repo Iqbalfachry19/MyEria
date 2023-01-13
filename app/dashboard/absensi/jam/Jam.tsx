@@ -26,6 +26,7 @@ const Absensi = async (props: Props) => {
               <th>Department</th>
               <th>Jam Masuk</th>
               <th>Jam Keluar</th>
+              <th>Tanggal</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -38,6 +39,9 @@ const Absensi = async (props: Props) => {
                 <td>{post.karyawan.department}</td>
                 <td>{moment(post.jamMasuk).utcOffset(0).format('hh:mm A')}</td>
                 <td>{moment(post.jamKeluar).utcOffset(0).format('hh:mm A')}</td>
+                <td>
+                  {moment(post.tanggal).utcOffset(0).format('DD-MM-yyyy')}
+                </td>
                 <td>
                   <Link href={`/dashboard/karyawan/edit/${post.idKaryawan}`}>
                     edit

@@ -17,6 +17,7 @@ export default async function handler(
   const lokasi = req.body.lokasi;
   const tanggal = req.body.tanggal;
   const status = req.body.status;
+  const keterangan = req.body.keterangan;
   const user = await prisma.isiAbsensi.create({
     data: {
       absensi: {
@@ -28,6 +29,7 @@ export default async function handler(
       lokasi,
       tanggal,
       status,
+      keterangan,
     },
   });
   res.status(200).json(user);
