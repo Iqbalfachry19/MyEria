@@ -6,6 +6,13 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    domains: [
+      'links.papareact.com',
+      'media-exp1.licdn.com',
+      'platform-lookaside.fbsbx.com',
+    ],
+  },
 };
 
 module.exports = nextConfig;

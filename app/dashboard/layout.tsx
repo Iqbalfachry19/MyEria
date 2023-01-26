@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LogoutButton from './LogoutButton';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Link href="/dashboard/karyawan">karyawan</Link>
         <Link href="/dashboard/absensi">Absensi</Link>
         <Link href="/dashboard/pengumuman">Pengumuman</Link>
+        <LogoutButton />
       </nav>
       <div className="w-full ">{children}</div>
     </div>
