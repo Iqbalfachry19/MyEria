@@ -18,8 +18,10 @@ type Absensi = {
   id: number;
   nik: string;
   department: string;
-  waktuAbsensiMasuk: Date;
-  waktuAbsensiKeluar: Date;
+  pukul: string;
+  tanggal: string;
+  status: string;
+  keterangan: string;
   aksi: string;
   absensi: {
     karyawan: {
@@ -47,20 +49,29 @@ const columns = [
     header: () => 'Department',
     cell: (info) => <span>{info.getValue()}</span>,
   }),
-  columnHelper.accessor('waktuAbsensiMasuk', {
-    header: 'Scan Masuk',
-    cell: (info) => (
-      <span>{moment(info.getValue()).utcOffset(0).format('hh:mm')}</span>
-    ),
+  columnHelper.accessor('pukul', {
+    header: 'Pukul',
+    cell: (info) => <span>{info.getValue()}</span>,
   }),
-  columnHelper.accessor('waktuAbsensiKeluar', {
-    header: 'Scan Keluar',
+  columnHelper.accessor('tanggal', {
+    header: 'Tanggal',
+  }),
+  columnHelper.accessor('status', {
+    header: 'Status',
+  }),
+  columnHelper.accessor('keterangan', {
+    header: 'Keterangan',
   }),
   columnHelper.accessor('id', {
     header: 'Aksi',
     cell: (info) => (
       <div className="space-x-2">
-        <Link href={`/dashboard/karyawan/edit/${info.getValue()}`}>edit</Link>
+        <Link
+          href={`/dashboard/karyawan/edit/${info.getValue()}`}
+          className="bg-yellow-400 rounded-lg p-2"
+        >
+          edit
+        </Link>
         <button className="bg-red-500 text-white rounded-lg p-2">hapus</button>
       </div>
     ),
@@ -76,16 +87,16 @@ const Absensi = ({ posts }: Props) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="">
-      <div>
+    <div className="overflow-y-scroll">
+      <div className=" ">
         <h1>List Absensi Karyawan</h1>
         <Suspense>
-          <table className="border-2 border-black">
+          <table className="border-2  border-black ">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
-                    <th key={header.id} className="border-2 border-black">
+                    <th key={header.id} className="border-2 p-2 border-black">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -101,7 +112,7 @@ const Absensi = ({ posts }: Props) => {
               {table.getRowModel().rows.map((row) => (
                 <tr key={row.id}>
                   {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} className="border-2 border-black">
+                    <td key={cell.id} className="border-2 p-2 border-black">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),

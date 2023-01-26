@@ -9,7 +9,7 @@ const getData = async () => {
 async function Page() {
   const posts = await getData();
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
+    <div className="flex flex-col h-screen pt-20 pb-2 justify-center items-center">
       <Absensi posts={posts} />
     </div>
   );

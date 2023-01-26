@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import Button from './Button';
+import Table from './Table';
 type Props = {};
 
 const getData = async () => {
@@ -15,42 +16,7 @@ const Karyawan = async (props: Props) => {
 
   return (
     <div className="flex flex-col justify-center items-center  w-full">
-      <div>
-        <h1>List Karyawan</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>NIK</th>
-              <th>Department</th>
-              <th>No HP</th>
-              <th>Alamat</th>
-              <th>Username</th>
-
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            {posts.map((post: any, i) => (
-              <tr key={i}>
-                <td>{i + 1}</td>
-                <td>{post.nama}</td>
-                <td>{post.nik}</td>
-                <td>{post.department}</td>
-                <td>{post.hp}</td>
-                <td>{post.alamat}</td>
-                <td>{post.username}</td>
-
-                <td className="space-x-2">
-                  <Link href={`/dashboard/karyawan/edit/${post.id}`}>edit</Link>
-                  <Button id={post.id} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table posts={posts} />
     </div>
   );
 };
