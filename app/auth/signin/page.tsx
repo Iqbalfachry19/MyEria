@@ -4,7 +4,7 @@ import SignInComponent from './SignInComponent';
 async function SignInPage() {
   const providers = await getProviders();
   return (
-    <div className="grid justify-center items-center">
+    <div className="grid justify-center mt-36 items-center">
       <div>
         <Image
           className="rounded-full mx-10 object-cover"
