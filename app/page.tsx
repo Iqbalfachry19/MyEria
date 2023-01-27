@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { unstable_getServerSession } from 'next-auth';
+
 import LogoutButton from './dashboard/LogoutButton';
-import Providers from './Providers';
+
 export default async function Home() {
-  const session = await unstable_getServerSession();
+
   return (
-    <Providers session={session}>
+  
       <div className="flex justify-center items-center flex-col mx-auto h-screen">
         <main className="">
           <h1 className="text-6xl">Welcome to My Eria</h1>
@@ -28,6 +28,6 @@ export default async function Home() {
           </div>
         </main>
       </div>
-    </Providers>
+  
   );
 }

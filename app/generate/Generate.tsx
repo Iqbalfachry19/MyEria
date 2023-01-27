@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import QRCode from 'qrcode.react';
 
 type Props = {};
@@ -10,6 +10,7 @@ const Generate = (props: Props) => {
   const downloadQRCode = () => {
     // Generate download with use canvas and stream
     const canvas = document.getElementById('qr-gen') as HTMLCanvasElement;
+
     const pngUrl = canvas
       .toDataURL('image/png')
       .replace('image/png', 'image/octet-stream');
@@ -20,6 +21,12 @@ const Generate = (props: Props) => {
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
+  };
+  const handleInputChange = (e: any) => {
+    setQrCodeValue(`{"lokasi":"${e.target.value}"}`);
+    if (e.target.value === '') {
+      setQrCodeValue('');
+    }
   };
   return (
     <>
@@ -36,12 +43,14 @@ const Generate = (props: Props) => {
           includeMargin={true}
         />
       )}
+      <h1 className="mt-10">Lokasi</h1>
       <input
-        className="outline-none ring-2 ring-gray-100 rounded-lg h-20 mt-10 p-2 hover:ring-blue-400"
+        className="outline-none ring-2 ring-gray-100 rounded-lg h-20 p-2 hover:ring-blue-400"
         onChange={(e) => {
-          setQrCodeValue(e.target.value);
+          handleInputChange(e);
         }}
       />
+
       <p>
         Click for{' '}
         <button type="button" onClick={downloadQRCode}>
