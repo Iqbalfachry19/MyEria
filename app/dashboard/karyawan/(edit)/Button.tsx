@@ -19,7 +19,14 @@ const Button = ({ id }: any) => {
 
     router.refresh();
   };
-  return <button onClick={() => hapus(id)}>hapus</button>;
+  return (
+    <button
+      className="bg-red-500 text-white rounded-lg p-2"
+      onClick={() => hapus(id)}
+    >
+      hapus
+    </button>
+  );
 };
 
 export default Button;

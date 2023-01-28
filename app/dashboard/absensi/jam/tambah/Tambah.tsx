@@ -34,8 +34,8 @@ const Tambah = ({ posts }: any) => {
       }),
     });
     setSelectedOption(posts[0].id);
-
     router.refresh();
+    router.push('/dashboard/absensi/jam');
   };
   return (
     <div className="flex px-2">

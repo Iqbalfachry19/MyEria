@@ -19,12 +19,13 @@ type Absensi = {
   alamat: string;
   username: string;
   aksi: string;
+  no: string;
 };
 const columnHelper = createColumnHelper<Absensi>();
 const columns = [
-  columnHelper.accessor('id', {
+  columnHelper.accessor('no', {
     header: () => <span>No</span>,
-    cell: (info) => info.renderValue(),
+    cell: (info) => <span>{info.row.index + 1}</span>,
   }),
   columnHelper.accessor('nama', {
     header: () => <span>Nama</span>,
@@ -57,7 +58,7 @@ const columns = [
         >
           edit
         </Link>
-        <button className="bg-red-500 text-white rounded-lg p-2">hapus</button>
+        <Button id={info.getValue()} />
       </div>
     ),
   }),

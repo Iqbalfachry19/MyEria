@@ -23,6 +23,7 @@ type Absensi = {
   status: string;
   keterangan: string;
   aksi: string;
+  no: string;
   absensi: {
     karyawan: {
       nama: string;
@@ -33,9 +34,9 @@ type Absensi = {
 };
 const columnHelper = createColumnHelper<Absensi>();
 const columns = [
-  columnHelper.accessor('id', {
+  columnHelper.accessor('no', {
     header: () => <span>No</span>,
-    cell: (info) => info.renderValue(),
+    cell: (info) => <span>{info.row.index + 1}</span>,
   }),
   columnHelper.accessor('absensi.karyawan.nama', {
     header: () => <span>Nama</span>,

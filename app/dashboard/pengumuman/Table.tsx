@@ -21,7 +21,7 @@ const columnHelper = createColumnHelper<Absensi>();
 const columns = [
   columnHelper.accessor('id', {
     header: () => <span>No</span>,
-    cell: (info) => info.renderValue(),
+    cell: (info) => <span>{info.row.index + 1}</span>,
   }),
   columnHelper.accessor('title', {
     header: () => <span>Judul</span>,
