@@ -7,7 +7,7 @@ type Props = {};
 const Button = ({ id }: any) => {
   const router = useRouter();
   const hapus = async (id: any) => {
-    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/deletePengumuman`, {
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/deleteIsiAbsensi`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

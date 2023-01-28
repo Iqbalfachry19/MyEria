@@ -9,7 +9,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import moment from 'moment';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 type Absensi = {
   id: number;
   title: string;
@@ -42,13 +42,16 @@ const columns = [
         >
           edit
         </Link>
-        <button className="bg-red-500 text-white rounded-lg p-2">hapus</button>
+        <Button id={info.getValue()} />
       </div>
     ),
   }),
 ];
 function Table({ posts }: any) {
   const [data, setData] = useState(() => [...posts]);
+  useEffect(() => {
+    setData(() => [...posts]);
+  }, [posts]);
   console.log(data);
   const table = useReactTable({
     data,

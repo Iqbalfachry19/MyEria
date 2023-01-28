@@ -25,9 +25,9 @@ const Tambah = () => {
     router.refresh();
   };
   return (
-    <div className="flex justify-center items-center">
-      <form onSubmit={(e) => create(e)}>
-        <h1>Tambah Karyawan</h1>
+    <div className="flex  justify-center items-center">
+      <form className="flex flex-col" onSubmit={(e) => create(e)}>
+        <h1>Tambah Pengumuman</h1>
         <input
           type="text"
           placeholder="Judul"
@@ -41,7 +41,7 @@ const Tambah = () => {
           onChange={(e) => setBody(e.target.value)}
         />
 
-        <button type="submit">Tambah Karyawan</button>
+        <button type="submit">Tambah Pengumuman</button>
       </form>
     </div>
   );

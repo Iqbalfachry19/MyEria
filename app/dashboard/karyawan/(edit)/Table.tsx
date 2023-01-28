@@ -9,7 +9,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import moment from 'moment';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 type Absensi = {
   id: number;
   nama: string;
@@ -65,6 +65,9 @@ const columns = [
 ];
 function Table({ posts }: any) {
   const [data, setData] = useState(() => [...posts]);
+  useEffect(() => {
+    setData(() => [...posts]);
+  }, [posts]);
   console.log(data);
   const table = useReactTable({
     data,

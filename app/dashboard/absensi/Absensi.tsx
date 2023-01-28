@@ -9,7 +9,8 @@ import {
 import moment from 'moment';
 
 import Link from 'next/link';
-import { use, useReducer, useState, Suspense } from 'react';
+import { use, useReducer, useState, Suspense, useEffect } from 'react';
+import Button from './Button';
 type Props = {
   posts: any;
 };
@@ -73,7 +74,7 @@ const columns = [
         >
           edit
         </Link>
-        <button className="bg-red-500 text-white rounded-lg p-2">hapus</button>
+        <Button id={info.getValue()} />
       </div>
     ),
   }),
@@ -81,6 +82,9 @@ const columns = [
 
 const Absensi = ({ posts }: Props) => {
   const [data, setData] = useState(() => [...posts]);
+  useEffect(() => {
+    setData(() => [...posts]);
+  }, [posts]);
   console.log(data);
   const table = useReactTable({
     data,

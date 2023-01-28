@@ -1,8 +1,6 @@
 import Table from './Table';
 const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getAbsensi`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getAbsensi`);
   return res.json();
 };
 async function Page() {
