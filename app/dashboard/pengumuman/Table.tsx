@@ -37,7 +37,7 @@ const columns = [
     cell: (info) => (
       <div className="space-x-2">
         <Link
-          href={`/dashboard/karyawan/edit/${info.getValue()}`}
+          href={`/dashboard/pengumuman/edit/${info.getValue()}`}
           className="bg-yellow-400 rounded-lg p-2"
         >
           edit
