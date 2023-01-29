@@ -11,6 +11,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import { use, useReducer, useState, Suspense, useEffect } from 'react';
 import Button from './Button';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 type Props = {
   posts: any;
 };
@@ -94,7 +95,20 @@ const Absensi = ({ posts }: Props) => {
   return (
     <div className="overflow-y-scroll">
       <div className=" ">
-        <h1>List Absensi Karyawan</h1>
+        <div className="flex items-center pb-1 justify-between space-x-2">
+          <h1>List Absensi Karyawan</h1>
+          <div className="flex space-x-2">
+            <div className="flex flex-row space-x-2 items-center bg-red-500 text-white cursor-pointer rounded-lg p-2">
+              <p>Filter </p>
+              <span>
+                <ChevronDownIcon className="w-4 h-4" />
+              </span>
+            </div>
+            <h1 className="bg-red-500 text-white cursor-pointer rounded-lg p-2">
+              Download rekap Absensi
+            </h1>
+          </div>
+        </div>
         <Suspense>
           <table className="border-2  border-black ">
             <thead>
