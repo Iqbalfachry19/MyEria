@@ -4,12 +4,12 @@ import Karyawan from './Karyawan';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-screen flex flex-col  justify-center items-center">
+    <div className="h-screen flex flex-row bg-gray-100  justify-center items-center">
       <Suspense fallback={<SpinnerCircular />}>
         {/* @ts-ignore */}
         <Karyawan />
       </Suspense>
-      <div>{children}</div>
+      <div className="flex bg-white">{children}</div>
     </div>
   );
 }

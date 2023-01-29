@@ -17,7 +17,7 @@ const Ubah = ({ params, post }: any) => {
 
   const edit = async (e: any) => {
     e.preventDefault();
-    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/updateKaryawan`, {
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/updatePengumuman`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Ubah = ({ params, post }: any) => {
     setAlamat('');
     setUsername('');
 
-    router.push('/dashboard/karyawan');
+    router.push('/dashboard/pengumuman');
     router.refresh();
   };
   return (

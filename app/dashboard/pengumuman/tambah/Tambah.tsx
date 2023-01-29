@@ -26,7 +26,10 @@ const Tambah = () => {
   };
   return (
     <div className="flex  justify-center items-center">
-      <form className="flex flex-col" onSubmit={(e) => create(e)}>
+      <form
+        className="flex flex-col border border-black p-2"
+        onSubmit={(e) => create(e)}
+      >
         <h1>Tambah Pengumuman</h1>
         <input
           type="text"
