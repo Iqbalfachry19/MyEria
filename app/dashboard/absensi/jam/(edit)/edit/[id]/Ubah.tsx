@@ -1,46 +1,54 @@
 'use client';
 
+import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs, { Dayjs } from 'dayjs';
-const Tambah = ({ posts }: any) => {
-  const [datas, setDatas] = useState(posts);
-  const [selectedOption, setSelectedOption] = useState(posts[0].id);
-  const [jamMasuk, setJamMasuk] = useState<Dayjs | null>(
-    dayjs('2022-12-23T08:00'),
-  );
-  const [tanggal, setTanggal] = useState<Dayjs | null>(dayjs(new Date()));
-  const [jamKeluar, setJamKeluar] = useState<Dayjs | null>(
-    dayjs('2022-12-23T10:00'),
-  );
+import utc from 'dayjs/plugin/utc';
 
+const Ubah = ({ params, post, karyawan }: any) => {
+  console.log(post);
+  const [id, setId] = useState(post.id);
+  dayjs.extend(utc);
+  const [datas, setDatas] = useState(karyawan);
+  const [selectedOption, setSelectedOption] = useState(post.idKaryawan);
+  const [jamMasuk, setJamMasuk] = useState<Dayjs | null>(
+    dayjs(post.jamMasuk).utcOffset(0),
+  );
+  const [tanggal, setTanggal] = useState<Dayjs | null>(
+    dayjs(post.tanggal).utcOffset(0),
+  );
+  const [jamKeluar, setJamKeluar] = useState<Dayjs | null>(
+    dayjs(post.jamKeluar).utcOffset(0),
+  );
   const router = useRouter();
-  const create = async (e: any) => {
+
+  const edit = async (e: any) => {
     e.preventDefault();
-    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/createAbsensi`, {
-      method: 'POST',
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/updateAbsensi`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        idKaryawan: posts[0].id,
-        jamMasuk,
-        jamKeluar,
-        tanggal,
+        id,
       }),
     });
-    setSelectedOption(posts[0].id);
+
+    router.push('/dashboard/pengumuman');
     router.refresh();
-    router.push('/dashboard/absensi/jam');
   };
   return (
-    <div className="flex px-2">
-      <form onSubmit={(e) => create(e)} className="flex flex-col">
-        <h1>Tambah Jam Absensi Karyawan</h1>
+    <div>
+      <form
+        className="flex flex-col border border-black p-2"
+        onSubmit={(e) => edit(e)}
+      >
+        <h1>Edit Jam Absensi Karyawan</h1>
         <div className="flex flex-col">
           <label>Karyawan</label>
           <select
@@ -93,11 +101,11 @@ const Tambah = ({ posts }: any) => {
               />
             </LocalizationProvider>
           </div>
-          <button type="submit">Tambah Jam Absensi Karyawan</button>
+          <button type="submit">Ubah Jam Absensi Karyawan</button>
         </div>
       </form>
     </div>
   );
 };
 
-export default Tambah;
+export default Ubah;
