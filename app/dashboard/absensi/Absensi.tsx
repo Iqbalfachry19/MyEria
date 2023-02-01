@@ -98,7 +98,7 @@ const Absensi = ({ posts }: Props) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="overflow-y-scroll">
+    <div className="">
       <div className="flex items-center pb-1 justify-between space-x-2">
         <h1>List Absensi Karyawan</h1>
         <div className="flex space-x-2">
@@ -114,35 +114,40 @@ const Absensi = ({ posts }: Props) => {
         </div>
       </div>
       <Suspense>
-        <table className="border-2  border-black ">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} className="border-2 p-2 border-black">
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="border-2 p-2 border-black">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="overflow-y-scroll flex h-2/3 ">
+          <table className="flex-col border-2  border-black ">
+            <thead>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <th key={header.id} className="border-2 p-2 border-black">
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((row) => (
+                <tr key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} className="border-2 p-2 border-black">
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Suspense>
     </div>
   );

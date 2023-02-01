@@ -10,7 +10,9 @@ async function Page() {
   const posts = await getData();
   return (
     <div className="flex flex-col h-screen pt-20 pb-2 justify-center items-center">
-      <Absensi posts={posts} />
+      <div className="overflow-y-scroll flex scrollbar-hide">
+        <Absensi posts={posts} />
+      </div>
     </div>
   );
 }
