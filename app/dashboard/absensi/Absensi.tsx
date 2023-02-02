@@ -12,6 +12,7 @@ import autoTable from 'jspdf-autotable';
 import Link from 'next/link';
 import { use, useReducer, useState, Suspense, useEffect } from 'react';
 import Button from './Button';
+import * as XLSX from 'xlsx';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Router, { useRouter } from 'next/navigation';
@@ -97,6 +98,12 @@ const Absensi = ({ posts }: Props) => {
     const doc = new jsPDF();
     autoTable(doc, { html: '#my-table' });
     doc.save('rekap.pdf');
+  };
+  const downloadExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Absensi');
+    XLSX.writeFile(wb, 'Absensi.xlsx');
   };
   const handleChange = (e: any) => {
     if (e.target.value == 10) {
@@ -193,7 +200,13 @@ const Absensi = ({ posts }: Props) => {
             onClick={download}
             className="bg-red-500 text-white cursor-pointer rounded-lg p-2"
           >
-            Download rekap Absensi
+            Download rekap Absensi PDF
+          </button>
+          <button
+            onClick={downloadExcel}
+            className="bg-red-500 text-white cursor-pointer rounded-lg p-2"
+          >
+            Download rekap Absensi EXCEL
           </button>
         </div>
       </div>

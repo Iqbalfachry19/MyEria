@@ -32,7 +32,8 @@
     "react-spinners": "^0.13.7",
     "react-time-picker": "^5.1.0",
     "spinners-react": "^1.0.7",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -41,6 +42,7 @@
     "@types/react-dom": "18.0.9",
     "@types/react-qr-reader": "^2.1.4",
     "@types/react-time-picker": "^4.0.2",
+    "@types/xlsx": "^0.0.36",
     "autoprefixer": "^10.4.13",
     "eslint": "8.30.0",
     "eslint-config-next": "^13.1.0",
