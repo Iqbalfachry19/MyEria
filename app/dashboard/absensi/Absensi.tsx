@@ -7,11 +7,14 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import moment from 'moment';
-
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import Link from 'next/link';
 import { use, useReducer, useState, Suspense, useEffect } from 'react';
 import Button from './Button';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import Router, { useRouter } from 'next/navigation';
 type Props = {
   posts: any;
 };
@@ -87,11 +90,38 @@ const columns = [
 ];
 
 const Absensi = ({ posts }: Props) => {
+  const [filter, setFilter] = useState('filter');
   const [data, setData] = useState(() => [...posts]);
+  const router = useRouter();
+  const download = () => {
+    const doc = new jsPDF();
+    autoTable(doc, { html: '#my-table' });
+    doc.save('rekap.pdf');
+  };
+  const handleChange = (e: any) => {
+    if (e.target.value == 10) {
+      const post = posts.filter((p: any) => p.status == 'in');
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 20) {
+      const post = posts.filter((p: any) => p.status == 'out');
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 30) {
+      const post = posts.filter((p: any) => p.keterangan == 'TIDAK TELAT');
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 40) {
+      const post = posts.filter((p: any) => p.status == 'TELAT');
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    }
+  };
+
   useEffect(() => {
     setData(() => [...posts]);
   }, [posts]);
-  console.log(data);
+
   const table = useReactTable({
     data,
     columns,
@@ -99,23 +129,36 @@ const Absensi = ({ posts }: Props) => {
   });
   return (
     <div className="">
-      <div className="flex items-center pb-1 justify-between space-x-2">
+      <div className="flex items-center pb-1 pt-2 justify-between space-x-2">
         <h1>List Absensi Karyawan</h1>
         <div className="flex space-x-2">
-          <div className="flex flex-row space-x-2 items-center bg-red-500 text-white cursor-pointer rounded-lg p-2">
-            <p>Filter </p>
-            <span>
-              <ChevronDownIcon className="w-4 h-4" />
-            </span>
-          </div>
-          <h1 className="bg-red-500 text-white cursor-pointer rounded-lg p-2">
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Filter</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={filter}
+              label="Filter"
+              onChange={(e) => handleChange(e)}
+            >
+              <MenuItem value={10}>Status In</MenuItem>
+              <MenuItem value={20}>Status Out</MenuItem>
+              <MenuItem value={30}>Tidak Telat</MenuItem>
+              <MenuItem value={40}>Telat</MenuItem>
+            </Select>
+          </FormControl>
+
+          <button
+            onClick={download}
+            className="bg-red-500 text-white cursor-pointer rounded-lg p-2"
+          >
             Download rekap Absensi
-          </h1>
+          </button>
         </div>
       </div>
       <Suspense>
         <div className="overflow-y-scroll flex h-2/3 ">
-          <table className="flex-col border-2  border-black ">
+          <table id="my-table" className="flex-col border-2  border-black ">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
