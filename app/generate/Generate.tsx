@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 import QRCode from 'qrcode.react';
 import Image from 'next/image';
-
+import html2canvas from 'html2canvas';
 type Props = {};
 
 const Generate = (props: Props) => {
@@ -10,18 +10,22 @@ const Generate = (props: Props) => {
   const [lokasi, setLokasi] = useState('');
   const downloadQRCode = () => {
     // Generate download with use canvas and stream
-    const canvas = document.getElementById('qr-gen') as HTMLCanvasElement;
+    const canvasEl = document.getElementById('bg');
+    if (!canvasEl) {
+      return;
+    }
+    html2canvas(canvasEl).then((canvas) => {
+      const pngUrl = canvas
+        .toDataURL('image/png')
+        .replace('image/png', 'image/octet-stream');
 
-    const pngUrl = canvas
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream');
-
-    let downloadLink = document.createElement('a');
-    downloadLink.href = pngUrl;
-    downloadLink.download = `${qrCodeValue}.png`;
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+      let downloadLink = document.createElement('a');
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${qrCodeValue}.png`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
   };
   const handleInputChange = (e: any) => {
     setQrCodeValue(`{"lokasi":"${e.target.value}"}`);
@@ -62,11 +66,10 @@ const Generate = (props: Props) => {
               <div className="w-20 h-20 absolute z-10 mt-[16cm] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image src="/logo.png" className="" fill alt="" />
               </div>
-              <div className="relative mx-72 inset-x-0">
-                <p className="z-5 text-[#373737] font-sans text-4xl absolute   font-bold my-[21cm]">
-                  {lokasi}
-                </p>
-              </div>
+
+              <p className="flex z-5 text-[#373737] font-sans mx-auto text-4xl justify-center items-center text-center  font-bold my-[21.8cm]">
+                {lokasi}
+              </p>
             </>
           )}
         </div>
