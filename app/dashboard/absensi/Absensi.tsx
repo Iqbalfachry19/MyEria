@@ -115,6 +115,45 @@ const Absensi = ({ posts }: Props) => {
       const post = posts.filter((p: any) => p.status == 'TELAT');
       setData(() => [...post]);
       setFilter(e.target.value);
+    } else if (e.target.value == 50) {
+      const date = new Date();
+      const month = date.getMonth();
+      console.log(month);
+      const post = posts.filter((p: any) => {
+        const dateString = p.tanggal;
+        const dateArr = dateString.split('-');
+        const day = dateArr[0];
+        const month = dateArr[1] - 1;
+        const year = dateArr[2];
+        const tdate = new Date(year, month, day);
+        const tmonth = tdate.getMonth();
+        const date = new Date();
+        const targetMonth = date.getMonth();
+        return targetMonth === tmonth;
+      });
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 60) {
+      const date = new Date();
+      const month = date.getMonth() - 1;
+      console.log(month);
+      const post = posts.filter((p: any) => {
+        const dateString = p.tanggal;
+        const dateArr = dateString.split('-');
+        const day = dateArr[0];
+        const month = dateArr[1] - 1;
+        const year = dateArr[2];
+        const tdate = new Date(year, month, day);
+        const tmonth = tdate.getMonth();
+        const date = new Date();
+        let targetMonth = date.getMonth() - 1;
+        if (targetMonth < 0) {
+          targetMonth = 11;
+        }
+        return targetMonth === tmonth;
+      });
+      setData(() => [...post]);
+      setFilter(e.target.value);
     }
   };
 
@@ -145,6 +184,8 @@ const Absensi = ({ posts }: Props) => {
               <MenuItem value={20}>Status Out</MenuItem>
               <MenuItem value={30}>Tidak Telat</MenuItem>
               <MenuItem value={40}>Telat</MenuItem>
+              <MenuItem value={50}>Bulan Ini</MenuItem>
+              <MenuItem value={60}>Bulan Lalu</MenuItem>
             </Select>
           </FormControl>
 
