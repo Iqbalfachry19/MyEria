@@ -9,11 +9,18 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const id = req.body.id;
+  const jamMasuk = req.body.jamMasuk;
+  const jamKeluar = req.body.jamKeluar;
+  const tanggal = req.body.tanggal;
   const posts = await prisma.absensi.update({
     where: {
       id,
     },
-    data: {},
+    data: {
+      jamMasuk,
+      jamKeluar,
+      tanggal,
+    },
   });
 
   res.status(200).json(posts);

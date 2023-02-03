@@ -36,10 +36,13 @@ const Ubah = ({ params, post, karyawan }: any) => {
       },
       body: JSON.stringify({
         id,
+        jamMasuk,
+        jamKeluar,
+        tanggal,
       }),
     });
 
-    router.push('/dashboard/pengumuman');
+    router.push('/dashboard/absensi/jam');
     router.refresh();
   };
   return (

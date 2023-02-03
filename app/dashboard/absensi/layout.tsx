@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           Tambah Jam Absensi Karyawan
         </Link>
       </nav>
-      <div className="w-full h-full flex flex-col">{children}</div>
+      <div className="w-full h-full bg-gray-100 flex flex-col">{children}</div>
     </div>
   );
 }

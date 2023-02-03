@@ -9,11 +9,22 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const id = req.body.id;
+  const pukul = req.body.pukul;
+  const lokasi = req.body.lokasi;
+  const tanggal = req.body.tanggal;
+  const status = req.body.status;
+  const keterangan = req.body.keterangan;
   const posts = await prisma.isiAbsensi.update({
     where: {
       id,
     },
-    data: {},
+    data: {
+      pukul,
+      lokasi,
+      tanggal,
+      status,
+      keterangan,
+    },
   });
 
   res.status(200).json(posts);

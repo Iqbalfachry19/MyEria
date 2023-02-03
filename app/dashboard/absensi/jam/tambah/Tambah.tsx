@@ -38,8 +38,8 @@ const Tambah = ({ posts }: any) => {
     router.push('/dashboard/absensi/jam');
   };
   return (
-    <div className="flex px-2">
-      <form onSubmit={(e) => create(e)} className="flex flex-col">
+    <div className="flex p-2 bg-white">
+      <form onSubmit={(e) => create(e)} className="flex flex-col ">
         <h1>Tambah Jam Absensi Karyawan</h1>
         <div className="flex flex-col">
           <label>Karyawan</label>

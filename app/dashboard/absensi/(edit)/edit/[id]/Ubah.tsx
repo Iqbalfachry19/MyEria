@@ -7,6 +7,8 @@ type Props = {};
 const Ubah = ({ params, post }: any) => {
   console.log(post);
   const [id, setId] = useState(post.id);
+  const [pukul, setPukul] = useState(post.pukul);
+  const [tanggal, setTanggal] = useState(post.tanggal);
   const [lokasi, setLokasi] = useState(post.lokasi);
   const [status, setStatus] = useState(post.status);
   const [keterangan, setKeterangan] = useState(post.keterangan);
@@ -21,16 +23,21 @@ const Ubah = ({ params, post }: any) => {
       },
       body: JSON.stringify({
         id,
+        pukul,
+        tanggal,
         lokasi,
         status,
         keterangan,
       }),
     });
+    setPukul('');
+    setTanggal('');
     setLokasi('');
     setStatus('');
     setKeterangan('');
-    router.push('/dashboard/absensi');
+
     router.refresh();
+    router.push('/dashboard/absensi');
   };
   return (
     <div>
@@ -39,6 +46,18 @@ const Ubah = ({ params, post }: any) => {
         onSubmit={(e) => edit(e)}
       >
         <h1>Edit Isi Absensi</h1>
+        <input
+          type="text"
+          placeholder="Pukul"
+          value={pukul}
+          onChange={(e) => setPukul(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Tanggal"
+          value={tanggal}
+          onChange={(e) => setTanggal(e.target.value)}
+        />
         <input
           type="text"
           placeholder="Lokasi"

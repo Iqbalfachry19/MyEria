@@ -173,7 +173,7 @@ const Absensi = ({ posts }: Props) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="">
+    <div className="bg-white p-2">
       <div className="flex items-center pb-1 pt-2 justify-between space-x-2">
         <h1>List Absensi Karyawan</h1>
         <div className="flex space-x-2">
@@ -199,18 +199,18 @@ const Absensi = ({ posts }: Props) => {
             onClick={download}
             className="bg-red-500 text-white cursor-pointer rounded-lg p-2"
           >
-            Download rekap Absensi PDF
+            Download Rekap Absensi PDF
           </button>
           <button
             onClick={downloadExcel}
             className="bg-red-500 text-white cursor-pointer rounded-lg p-2"
           >
-            Download rekap Absensi EXCEL
+            Download Rekap Absensi EXCEL
           </button>
         </div>
       </div>
       <Suspense>
-        <div className="overflow-y-scroll flex h-2/3 ">
+        <div className="overflow-y-scroll flex h-5/6 ">
           <table id="my-table" className="flex-col border-2  border-black ">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (

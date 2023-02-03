@@ -116,7 +116,7 @@ function Table({ posts }: any) {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div>
+    <div className="p-2 bg-white">
       <h1>Jadwal Absensi Karyawan</h1>
       <table className="border-2  border-black ">
         <thead>
