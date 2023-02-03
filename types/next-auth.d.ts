@@ -11,6 +11,7 @@ declare module 'next-auth' {
     } & DefaultSession['user'];
     id: string;
     admin?: boolean | null | undefined;
+    name?: string | null | undefined;
   }
   interface User {
     admin?: boolean | null | undefined;
@@ -20,6 +21,6 @@ declare module 'next-auth/jwt' {
   interface JWT {
     id: string;
 
-    admin: boolean | null | undefined;
+    name: string | null | undefined;
   }
 }

@@ -26,15 +26,11 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (user) {
-          const isValidPassword = await verify(user.password, creds.password);
-          if (isValidPassword) {
-            return {
-              id: user.id,
+          return {
+            id: user.id,
 
-              name: user.username,
-              admin: user.admin,
-            };
-          }
+            name: user.nama,
+          };
         }
         return null;
       },
@@ -44,7 +40,27 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  callbacks: {
+    jwt: async ({ token, user }) => {
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+      }
 
+      return token;
+    },
+    session: async ({ session, token }) => {
+      if (token) {
+        session.id = token.id;
+        session.name = token.name;
+      }
+
+      return session;
+    },
+  },
+  jwt: {
+    maxAge: 15 * 24 * 30 * 60, // 15 days
+  },
   secret: process.env.NEXTAUTH_SECRET!,
   pages: {
     signIn: '/auth/signin',
