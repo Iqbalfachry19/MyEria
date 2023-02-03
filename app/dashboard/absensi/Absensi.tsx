@@ -100,10 +100,9 @@ const Absensi = ({ posts }: Props) => {
     doc.save('rekap.pdf');
   };
   const downloadExcel = () => {
-    const ws = XLSX.utils.json_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Absensi');
-    XLSX.writeFile(wb, 'Absensi.xlsx');
+    const ws = XLSX.utils.table_to_book(document.getElementById('my-table'));
+
+    XLSX.writeFile(ws, 'Absensi.xlsx');
   };
   const handleChange = (e: any) => {
     if (e.target.value == 10) {
