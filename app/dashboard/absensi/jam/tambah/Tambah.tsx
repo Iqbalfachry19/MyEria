@@ -93,7 +93,12 @@ const Tambah = ({ posts }: any) => {
               />
             </LocalizationProvider>
           </div>
-          <button type="submit">Tambah Jam Absensi Karyawan</button>
+          <button
+            className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+            type="submit"
+          >
+            Tambah Jam Absensi Karyawan
+          </button>
         </div>
       </form>
     </div>

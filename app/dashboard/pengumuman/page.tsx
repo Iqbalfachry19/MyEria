@@ -10,7 +10,7 @@ const getData = async () => {
 async function page() {
   const posts = await getData();
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
+    <div className="flex flex-col  h-screen justify-center items-center">
       <Table posts={posts} />
     </div>
   );

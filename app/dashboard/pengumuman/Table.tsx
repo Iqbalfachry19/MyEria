@@ -59,7 +59,7 @@ function Table({ posts }: any) {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="bg-white">
+    <div className="bg-white p-2">
       <h1>List Pengumuman</h1>
       <table className="border-2  border-black ">
         <thead>

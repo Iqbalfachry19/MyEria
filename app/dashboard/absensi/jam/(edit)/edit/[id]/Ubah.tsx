@@ -46,7 +46,7 @@ const Ubah = ({ params, post, karyawan }: any) => {
     router.refresh();
   };
   return (
-    <div>
+    <div className="p-2">
       <form
         className="flex flex-col border border-black p-2"
         onSubmit={(e) => edit(e)}
@@ -104,7 +104,12 @@ const Ubah = ({ params, post, karyawan }: any) => {
               />
             </LocalizationProvider>
           </div>
-          <button type="submit">Ubah Jam Absensi Karyawan</button>
+          <button
+            className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+            type="submit"
+          >
+            Ubah Jam Absensi Karyawan
+          </button>
         </div>
       </form>
     </div>

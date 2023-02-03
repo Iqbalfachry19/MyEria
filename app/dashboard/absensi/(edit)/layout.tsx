@@ -17,12 +17,12 @@ export default async function Layout({
   const posts = await getData();
   return (
     <div className="flex flex-row overflow-y-scroll h-screen justify-center items-center">
-      <div className="flex h-2/3  ">
+      <div className="flex h-5/6  ">
         <Suspense fallback={<SpinnerCircular />}>
           <Absensi posts={posts} />
         </Suspense>
       </div>
-      <div className="flex bg-white">{children}</div>
+      <div className="flex ml-2 bg-white">{children}</div>
     </div>
   );
 }

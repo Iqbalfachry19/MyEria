@@ -25,7 +25,7 @@ const Tambah = () => {
     router.refresh();
   };
   return (
-    <div className="flex  justify-center items-center">
+    <div className="flex bg-white p-2 justify-center items-center">
       <form
         className="flex flex-col border border-black p-2"
         onSubmit={(e) => create(e)}

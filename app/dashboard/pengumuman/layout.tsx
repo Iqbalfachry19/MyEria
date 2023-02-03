@@ -8,7 +8,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <Link href="/dashboard/pengumuman">List Pengumuman</Link>
         <Link href="/dashboard/pengumuman/tambah">Tambah Pengumuman</Link>
       </nav>
-      <div className="w-full h-full flex flex-col">{children}</div>
+      <div className="w-full h-full bg-gray-100 flex flex-col">{children}</div>
     </div>
   );
 }

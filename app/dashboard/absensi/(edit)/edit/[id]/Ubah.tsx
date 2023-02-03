@@ -40,7 +40,7 @@ const Ubah = ({ params, post }: any) => {
     router.push('/dashboard/absensi');
   };
   return (
-    <div>
+    <div className="p-2">
       <form
         className="flex flex-col border border-black p-2"
         onSubmit={(e) => edit(e)}
@@ -76,7 +76,12 @@ const Ubah = ({ params, post }: any) => {
           value={keterangan}
           onChange={(e) => setKeterangan(e.target.value)}
         />
-        <button type="submit">Ubah Isi Absensi</button>
+        <button
+          className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+          type="submit"
+        >
+          Ubah Isi Absensi
+        </button>
       </form>
     </div>
   );

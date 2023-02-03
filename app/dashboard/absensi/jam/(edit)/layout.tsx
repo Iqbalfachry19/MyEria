@@ -20,7 +20,7 @@ export default async function Layout({
       <Suspense fallback={<SpinnerCircular />}>
         <Table posts={posts} />
       </Suspense>
-      <div className="flex bg-white">{children}</div>
+      <div className="flex ml-2 bg-white">{children}</div>
     </div>
   );
 }
