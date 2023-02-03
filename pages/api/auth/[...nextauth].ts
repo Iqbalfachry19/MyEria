@@ -26,11 +26,14 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (user) {
+          // const isValidPassword = await verify(user.password, creds.password);
+          // if (isValidPassword) {
           return {
             id: user.id,
 
             name: user.nama,
           };
+          // }
         }
         return null;
       },
