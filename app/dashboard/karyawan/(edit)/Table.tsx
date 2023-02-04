@@ -82,7 +82,10 @@ function Table({ posts }: any) {
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id} className="border-2 p-2 border-black">
+                <th
+                  key={header.id}
+                  className="border-2 p-2 bg-green-500 border-black"
+                >
                   {header.isPlaceholder
                     ? null
                     : flexRender(
