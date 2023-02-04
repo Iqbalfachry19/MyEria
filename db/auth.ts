@@ -5,7 +5,7 @@ import { verify } from 'argon2';
 import { NextAuthOptions } from 'next-auth';
 import { prisma } from '../db/db';
 import { loginSchema } from '../db/validation/auth';
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
     Credentials({
@@ -69,3 +69,4 @@ export const authOptions: NextAuthOptions = {
     signIn: '/auth/signin',
   },
 };
+export default authOptions;
