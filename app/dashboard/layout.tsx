@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import Link from 'next/link';
-import { authOptions } from '../../pages/api/auth/[...nextauth]';
+import { authOptions } from '../../db/auth';
 import LogoutButton from './LogoutButton';
 
 export default async function Layout({

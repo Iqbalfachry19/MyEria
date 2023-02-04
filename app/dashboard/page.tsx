@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../../pages/api/auth/[...nextauth]';
+import { authOptions } from '../../db/auth';
 async function Page() {
   const session = await getServerSession(authOptions);
 
