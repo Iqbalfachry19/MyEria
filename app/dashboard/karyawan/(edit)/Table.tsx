@@ -77,7 +77,7 @@ function Table({ posts }: any) {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="h-[28rem]">
+    <div className="h-[25rem]">
       <h1>List Karyawan</h1>
       <div className="overflow-y-scroll flex-col flex ">
         <table className="border-2  border-black ">
