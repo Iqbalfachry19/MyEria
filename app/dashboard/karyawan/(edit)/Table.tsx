@@ -77,9 +77,9 @@ function Table({ posts }: any) {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="h-[25rem]">
+    <div className="h-[28rem]">
       <h1>List Karyawan</h1>
-      <div className="overflow-y-scroll flex-col flex ">
+      <div className="overflow-y-scroll flex-col flex h-2/3">
         <table className="border-2  border-black ">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
