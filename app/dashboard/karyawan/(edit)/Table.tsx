@@ -6,6 +6,7 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
 import moment from 'moment';
@@ -72,6 +73,7 @@ function Table({ posts }: any) {
   const table = useReactTable({
     data,
     columns,
+    getPaginationRowModel: getPaginationRowModel(),
     getCoreRowModel: getCoreRowModel(),
   });
   return (
