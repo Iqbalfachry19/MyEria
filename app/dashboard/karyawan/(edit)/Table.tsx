@@ -41,13 +41,13 @@ const columns = [
     cell: (info) => <span>{info.getValue()}</span>,
   }),
   columnHelper.accessor('hp', {
-    header: 'Jam Masuk',
+    header: 'No HP',
   }),
   columnHelper.accessor('alamat', {
-    header: 'Jam Keluar',
+    header: 'Alamat',
   }),
   columnHelper.accessor('username', {
-    header: 'Tanggal',
+    header: 'Username',
   }),
   columnHelper.accessor('id', {
     header: 'Aksi',
