@@ -79,7 +79,7 @@ function Table({ posts }: any) {
   return (
     <div className="h-[28rem]">
       <h1>List Karyawan</h1>
-      <div className="overflow-y-scroll flex-col flex h-5/6">
+      <div className="overflow-y-auto flex-col flex h-5/6">
         <table className="border-2  border-black ">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
