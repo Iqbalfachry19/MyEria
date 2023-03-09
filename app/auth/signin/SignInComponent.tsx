@@ -14,12 +14,14 @@ function SignInComponent({ providers }: Props) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Enter username"
+        className="px-4 py-2 rounded-lg border border-gray-400 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Enter password"
+        className="px-4 py-2 rounded-lg border border-gray-400 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
       {Object.values(providers!).map((provider) => (
         <div key={provider.name}>
