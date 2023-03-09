@@ -15,7 +15,7 @@ async function SignInPage() {
         />
       </div>
       <h1 className="flex text-2xl text-center pb-2">
-        Selamat datang di myeria
+        Selamat datang di MyEria
       </h1>
       <SignInComponent providers={providers} />
     </div>
