@@ -19,7 +19,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Router, { useRouter } from 'next/navigation';
 type Props = {
   posts: any;
-  karyawan: any;
+  karyawan?: any;
 };
 
 type Absensi = {
