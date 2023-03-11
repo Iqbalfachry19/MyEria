@@ -19,6 +19,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Router, { useRouter } from 'next/navigation';
 type Props = {
   posts: any;
+  karyawan: any;
 };
 
 type Absensi = {
@@ -91,9 +92,11 @@ const columns = [
   }),
 ];
 
-const Absensi = ({ posts }: Props) => {
+const Absensi = ({ posts, karyawan }: Props) => {
   const [filter, setFilter] = useState('filter');
   const [data, setData] = useState(() => [...posts]);
+  const [datas, setDatas] = useState(karyawan);
+  const [selectedOption, setSelectedOption] = useState('semua');
   const router = useRouter();
   const download = () => {
     const doc = new jsPDF();
@@ -105,24 +108,43 @@ const Absensi = ({ posts }: Props) => {
 
     XLSX.writeFile(ws, 'Absensi.xlsx');
   };
+  const handleKaryawan = (e: any) => {
+    console.log(e.target.value);
+    setSelectedOption(e.target.value);
+
+    if (e.target.value == 'semua') {
+      setData(() => [...posts]);
+      setFilter('filter');
+    }
+    if (
+      e.target.value !== 'semua' &&
+      karyawan[e.target.value].id == karyawan[e.target.value].id
+    ) {
+      const post = posts.filter(
+        (p: any) => p.absensi.karyawan.nama == karyawan[e.target.value].nama,
+      );
+      setData(() => [...post]);
+      setFilter('filter');
+    }
+  };
   const handleChange = (e: any) => {
-    if (e.target.value == 10) {
+    if (e.target.value == 10 && selectedOption == 'semua') {
       const post = posts.filter((p: any) => p.status == 'in');
       setData(() => [...post]);
       setFilter(e.target.value);
-    } else if (e.target.value == 20) {
+    } else if (e.target.value == 20 && selectedOption == 'semua') {
       const post = posts.filter((p: any) => p.status == 'out');
       setData(() => [...post]);
       setFilter(e.target.value);
-    } else if (e.target.value == 30) {
+    } else if (e.target.value == 30 && selectedOption == 'semua') {
       const post = posts.filter((p: any) => p.keterangan == 'TIDAK TELAT');
       setData(() => [...post]);
       setFilter(e.target.value);
-    } else if (e.target.value == 40) {
+    } else if (e.target.value == 40 && selectedOption == 'semua') {
       const post = posts.filter((p: any) => p.status == 'TELAT');
       setData(() => [...post]);
       setFilter(e.target.value);
-    } else if (e.target.value == 50) {
+    } else if (e.target.value == 50 && selectedOption == 'semua') {
       const date = new Date();
       const month = date.getMonth();
       console.log(month);
@@ -140,7 +162,7 @@ const Absensi = ({ posts }: Props) => {
       });
       setData(() => [...post]);
       setFilter(e.target.value);
-    } else if (e.target.value == 60) {
+    } else if (e.target.value == 60 && selectedOption == 'semua') {
       const date = new Date();
       const month = date.getMonth() - 1;
       console.log(month);
@@ -162,6 +184,84 @@ const Absensi = ({ posts }: Props) => {
       setData(() => [...post]);
       setFilter(e.target.value);
     }
+    if (e.target.value == 10 && selectedOption !== 'semua') {
+      const post = posts.filter(
+        (p: any) =>
+          p.status == 'in' &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama,
+      );
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 20 && selectedOption !== 'semua') {
+      const post = posts.filter(
+        (p: any) =>
+          p.status == 'out' &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama,
+      );
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 30 && selectedOption !== 'semua') {
+      const post = posts.filter(
+        (p: any) =>
+          p.keterangan == 'TIDAK TELAT' &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama,
+      );
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 40 && selectedOption !== 'semua') {
+      const post = posts.filter(
+        (p: any) =>
+          p.status == 'TELAT' &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama,
+      );
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 50 && selectedOption !== 'semua') {
+      const date = new Date();
+      const month = date.getMonth();
+      console.log(month);
+      const post = posts.filter((p: any) => {
+        const dateString = p.tanggal;
+        const dateArr = dateString.split('-');
+        const day = dateArr[0];
+        const month = dateArr[1] - 1;
+        const year = dateArr[2];
+        const tdate = new Date(year, month, day);
+        const tmonth = tdate.getMonth();
+        const date = new Date();
+        const targetMonth = date.getMonth();
+        return (
+          targetMonth === tmonth &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama
+        );
+      });
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    } else if (e.target.value == 60 && selectedOption !== 'semua') {
+      const date = new Date();
+      const month = date.getMonth() - 1;
+      console.log(month);
+      const post = posts.filter((p: any) => {
+        const dateString = p.tanggal;
+        const dateArr = dateString.split('-');
+        const day = dateArr[0];
+        const month = dateArr[1] - 1;
+        const year = dateArr[2];
+        const tdate = new Date(year, month, day);
+        const tmonth = tdate.getMonth();
+        const date = new Date();
+        let targetMonth = date.getMonth() - 1;
+        if (targetMonth < 0) {
+          targetMonth = 11;
+        }
+        return (
+          targetMonth === tmonth &&
+          p.absensi.karyawan.nama == karyawan[selectedOption].nama
+        );
+      });
+      setData(() => [...post]);
+      setFilter(e.target.value);
+    }
   };
 
   useEffect(() => {
@@ -176,9 +276,20 @@ const Absensi = ({ posts }: Props) => {
   });
   return (
     <div className="bg-white p-2">
-      <div className="flex items-center pb-1 pt-2 justify-between space-x-2">
-        <h1>List Absensi Karyawan</h1>
+      <div className="flex items-center pb-1 pt-4 justify-between space-x-2">
+        <h1 className="font-bold text-xl">List Absensi Karyawan</h1>
         <div className="flex space-x-2">
+          <div>
+            <label>Karyawan</label>
+            <select value={selectedOption} onChange={(e) => handleKaryawan(e)}>
+              <option value="semua">Semua Karyawan</option>
+              {datas.map((post: any, id: any) => (
+                <option key={post.id} value={id}>
+                  {post.nama}
+                </option>
+              ))}
+            </select>
+          </div>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Filter</InputLabel>
             <Select

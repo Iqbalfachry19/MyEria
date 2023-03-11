@@ -25,7 +25,7 @@ export default async function handler(
     data: {
       jamMasuk: date,
       jamKeluar: date1,
-      idKaryawan,
+      idKaryawan: Number(idKaryawan),
       tanggal: date2,
     },
   });

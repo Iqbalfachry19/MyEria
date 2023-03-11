@@ -117,7 +117,7 @@ function Table({ posts }: any) {
   });
   return (
     <div className="p-2 bg-white">
-      <h1>Jadwal Absensi Karyawan</h1>
+      <h1 className="font-bold text-xl">Jadwal Absensi Karyawan</h1>
       <table className="border-2  border-black ">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

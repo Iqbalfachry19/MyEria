@@ -6,12 +6,20 @@ const getData = async () => {
 
   return res.json();
 };
+const getKaryawan = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/getKaryawan`, {
+    cache: 'no-store',
+  });
+  const posts = await res.json();
+  return posts as any[];
+};
 async function Page() {
   const posts = await getData();
+  const karyawan = await getKaryawan();
   return (
     <div className="flex flex-col h-screen pt-20 pb-2 justify-center items-center">
       <div className="overflow-y-scroll flex scrollbar-hide">
-        <Absensi posts={posts} />
+        <Absensi posts={posts} karyawan={karyawan} />
       </div>
     </div>
   );

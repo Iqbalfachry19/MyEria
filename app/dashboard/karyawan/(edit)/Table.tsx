@@ -78,7 +78,7 @@ function Table({ posts }: any) {
   });
   return (
     <div className="h-[28rem]">
-      <h1>List Karyawan</h1>
+      <h1 className="font-bold text-xl">List Karyawan</h1>
       <div className="overflow-y-auto flex-col flex h-5/6">
         <table className="border-2  border-black ">
           <thead>

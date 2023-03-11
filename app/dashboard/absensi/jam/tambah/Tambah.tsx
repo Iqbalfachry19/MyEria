@@ -10,6 +10,7 @@ import dayjs, { Dayjs } from 'dayjs';
 const Tambah = ({ posts }: any) => {
   const [datas, setDatas] = useState(posts);
   const [selectedOption, setSelectedOption] = useState(posts[0].id);
+  console.log(selectedOption);
   const [jamMasuk, setJamMasuk] = useState<Dayjs | null>(
     dayjs('2022-12-23T08:00'),
   );
@@ -27,7 +28,7 @@ const Tambah = ({ posts }: any) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        idKaryawan: posts[0].id,
+        idKaryawan: selectedOption,
         jamMasuk,
         jamKeluar,
         tanggal,
@@ -47,7 +48,7 @@ const Tambah = ({ posts }: any) => {
             value={selectedOption}
             onChange={(e) => setSelectedOption(e.target.value)}
           >
-            {datas.map((post: any) => (
+            {datas.map((post: any, id: any) => (
               <option key={post.id} value={post.id}>
                 {post.nama}
               </option>

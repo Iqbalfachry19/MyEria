@@ -62,7 +62,7 @@ function Table({ posts }: any) {
   });
   return (
     <div className="bg-white p-2">
-      <h1>List Pengumuman</h1>
+      <h1 className="font-bold text-xl">List Pengumuman</h1>
       <table className="border-2  border-black ">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
