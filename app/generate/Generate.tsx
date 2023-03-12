@@ -63,7 +63,7 @@ const Generate = (props: Props) => {
                 }}
                 className=""
               />
-              <div className="w-20 h-20 absolute z-10 mt-[16cm] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="w-16 h-20 absolute z-10 mt-[16cm] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image src="/logo.png" className="" fill alt="" />
               </div>
 
