@@ -18,7 +18,7 @@ async function Page() {
   const karyawan = await getKaryawan();
   return (
     <div className="flex flex-col h-screen pt-20 pb-2 justify-center items-center">
-      <div className="overflow-y-scroll flex scrollbar-hide">
+      <div className="overflow-y-auto flex scrollbar-hide">
         <Absensi posts={posts} karyawan={karyawan} />
       </div>
     </div>
