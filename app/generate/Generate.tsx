@@ -38,10 +38,10 @@ const Generate = (props: Props) => {
       <div className="border-2  mx-auto mt-10 hover:text-blue-400  hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
         Generate QR
       </div>
-      <div className="flex mt-10">
+      <div className="flex overflow-y-auto mt-10">
         <div
           id="bg"
-          className="bg-cover  flex"
+          className="bg-cover relative flex"
           style={{
             backgroundImage: `url('/bg.png')`,
             width: '21cm',
