@@ -42,7 +42,7 @@ const Tambah = () => {
           type="text"
           placeholder="Pengumuman"
           value={body}
-          className="border border-gray-400 rounded-lg p-2"
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setBody(e.target.value)}
         />
 
