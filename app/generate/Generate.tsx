@@ -85,7 +85,7 @@ const Generate = (props: Props) => {
       />
 
       <button
-        className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+        className="rounded-lg bg-blue-400 text-white p-2 mt-2 mb-2"
         type="button"
         onClick={downloadQRCode}
       >
