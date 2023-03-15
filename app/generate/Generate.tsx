@@ -83,12 +83,13 @@ const Generate = (props: Props) => {
         }}
       />
 
-      <p>
-        Click for{' '}
-        <button type="button" onClick={downloadQRCode}>
-          Download QR Code
-        </button>
-      </p>
+      <button
+        className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+        type="button"
+        onClick={downloadQRCode}
+      >
+        Download QR Code
+      </button>
     </div>
   );
 };
