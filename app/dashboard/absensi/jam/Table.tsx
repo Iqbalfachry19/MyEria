@@ -74,13 +74,13 @@ function Table({ posts }: any) {
     columnHelper.accessor('jamMasuk', {
       header: 'Jam Masuk',
       cell: (info) => (
-        <span>{moment(info.getValue()).utcOffset(0).format('hh:mm')}</span>
+        <span>{moment(info.getValue()).utcOffset(0).format('HH:mm')}</span>
       ),
     }),
     columnHelper.accessor('jamKeluar', {
       header: 'Jam Keluar',
       cell: (info) => (
-        <span>{moment(info.getValue()).utcOffset(0).format('hh:mm')}</span>
+        <span>{moment(info.getValue()).utcOffset(0).format('HH:mm')}</span>
       ),
     }),
     columnHelper.accessor('tanggal', {
