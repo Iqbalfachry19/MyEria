@@ -47,6 +47,7 @@ const Tambah = ({ posts }: any) => {
           <select
             value={selectedOption}
             onChange={(e) => setSelectedOption(e.target.value)}
+            className="border border-gray-400 rounded-lg p-2"
           >
             {datas.map((post: any, id: any) => (
               <option key={post.id} value={post.id}>
