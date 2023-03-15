@@ -76,6 +76,7 @@ const Generate = (props: Props) => {
       </div>
       <h1 className="mt-10">Lokasi</h1>
       <input
+        placeholder="masukkan lokasi"
         className="outline-none ring-2 ring-gray-100 rounded-lg h-20 p-2 hover:ring-blue-400"
         onChange={(e) => {
           handleInputChange(e);
