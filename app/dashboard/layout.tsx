@@ -30,7 +30,7 @@ export default async function Layout({
         <Link href="/dashboard/karyawan">Karyawan</Link>
         <Link href="/dashboard/absensi">Absensi</Link>
         <Link href="/dashboard/pengumuman">Pengumuman</Link>
-        <Link href="/dashboard/generate">Generate QR</Link>
+        <Link href="/generate">Generate QR</Link>
         <LogoutButton />
       </nav>
       <div className="w-full">{children}</div>
