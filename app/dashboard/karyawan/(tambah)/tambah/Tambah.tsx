@@ -48,45 +48,57 @@ const Tambah = () => {
           type="text"
           placeholder="Nama"
           value={name}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           placeholder="NIK"
           value={nik}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setNik(e.target.value)}
         />
         <input
           type="text"
           placeholder="Department"
           value={department}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setDepartment(e.target.value)}
         />
         <input
           type="text"
           placeholder="Username"
           value={username}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="text"
           placeholder="Password"
           value={password}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="text"
           placeholder="HP"
           value={hp}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setHp(e.target.value)}
         />
         <input
           type="text"
           placeholder="Alamat"
           value={alamat}
+          className="border border-gray-400 rounded-lg p-2"
           onChange={(e) => setAlamat(e.target.value)}
         />
-        <button type="submit">Tambah Karyawan</button>
+        <button
+          className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+          type="submit"
+        >
+          Tambah Karyawan
+        </button>
       </form>
     </div>
   );
