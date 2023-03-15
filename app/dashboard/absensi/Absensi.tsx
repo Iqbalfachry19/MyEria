@@ -281,7 +281,11 @@ const Absensi = ({ posts, karyawan }: Props) => {
         <div className="flex space-x-2">
           <div>
             <label>Karyawan</label>
-            <select value={selectedOption} onChange={(e) => handleKaryawan(e)}>
+            <select
+              className="border border-gray-400 rounded-lg p-2"
+              value={selectedOption}
+              onChange={(e) => handleKaryawan(e)}
+            >
               <option value="semua">Semua Karyawan</option>
               {datas.map((post: any, id: any) => (
                 <option key={post.id} value={id}>

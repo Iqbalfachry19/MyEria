@@ -42,16 +42,23 @@ const Ubah = ({ params, post }: any) => {
           type="text"
           placeholder="Judul"
           value={title}
+          className="border border-gray-400 rounded-lg p-2 "
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Pengumuman"
           value={body}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setBody(e.target.value)}
         />
 
-        <button type="submit">Ubah Pengumuman</button>
+        <button
+          className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+          type="submit"
+        >
+          Ubah Pengumuman
+        </button>
       </form>
     </div>
   );

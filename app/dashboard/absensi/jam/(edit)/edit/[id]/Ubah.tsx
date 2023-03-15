@@ -56,6 +56,7 @@ const Ubah = ({ params, post, karyawan }: any) => {
           <label>Karyawan</label>
           <select
             value={selectedOption}
+            className="border border-gray-400 rounded-lg p-2"
             onChange={(e) => setSelectedOption(e.target.value)}
           >
             {datas.map((post: any) => (

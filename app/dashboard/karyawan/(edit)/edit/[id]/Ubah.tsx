@@ -53,39 +53,50 @@ const Ubah = ({ params, post }: any) => {
           type="text"
           placeholder="Nama"
           value={name}
+          className="border border-gray-400 rounded-lg p-2 "
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           placeholder="NIK"
           value={nik}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setNik(e.target.value)}
         />
         <input
           type="text"
           placeholder="Department"
           value={department}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setDepartment(e.target.value)}
         />
         <input
           type="text"
           placeholder="No HP"
           value={hp}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setHp(e.target.value)}
         />
         <input
           type="text"
           placeholder="Alamat"
           value={alamat}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setAlamat(e.target.value)}
         />
         <input
           type="text"
           placeholder="Username"
           value={username}
+          className="border border-gray-400 rounded-lg p-2 mt-2"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button type="submit">Ubah Karyawan</button>
+        <button
+          className="rounded-lg bg-blue-400 text-white p-2 mt-2"
+          type="submit"
+        >
+          Ubah Karyawan
+        </button>
       </form>
     </div>
   );
