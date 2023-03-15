@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-gray-100">
       {' '}
-      <nav className="space-x-2 flex  p-2 text-white absolute mb-2 w-full bg-gray-600">
+      <nav className="space-x-2 flex  p-2 text-white absolute mb-2 w-full items-center justify-between bg-gray-600">
         <Link href="/">
           <ArrowLeftIcon className="w-4 h-4" />
         </Link>
