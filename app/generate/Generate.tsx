@@ -35,7 +35,7 @@ const Generate = (props: Props) => {
   };
   return (
     <div className="flex flex-col  h-screen">
-      <div className="border-2  mx-auto mt-10 hover:text-blue-400  hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
+      <div className="border-2   mx-auto mt-12 hover:text-blue-400  hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
         Generate QR
       </div>
       <div className="flex overflow-y-auto mt-10">
