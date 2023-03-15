@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,6 +15,9 @@ export default async function Layout({
   return (
     <div className="flex w-full h-screen z-10 relative">
       <nav className="space-y-2 flex flex-col p-2 border-r border-black shadow-2xl text-white bg-gray-600">
+        <Link href="/">
+          <ArrowLeftIcon className="w-4 h-4" />
+        </Link>
         <div className="h-10 w-10 relative">
           <Image
             src={
