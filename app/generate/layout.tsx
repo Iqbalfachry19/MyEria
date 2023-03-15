@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {' '}
       <nav className="space-x-2 flex  p-2 text-white absolute w-full bg-gray-600">
         <Link href="/">
-          <ArrowLeftIcon />
+          <ArrowLeftIcon className="w-4 h-4" />
         </Link>
         <Link href="/dashboard">Dashboard</Link>
       </nav>
