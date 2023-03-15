@@ -1,3 +1,17 @@
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <div className="bg-gray-100">{children}</div>;
+  return (
+    <div className="bg-gray-100">
+      {' '}
+      <nav className="space-x-2 flex  p-2 text-white absolute w-full bg-gray-600">
+        <Link href="/">
+          <ArrowLeftIcon />
+        </Link>
+        <Link href="/dashboard">Dashboard</Link>
+      </nav>
+      {children}
+    </div>
+  );
 }
