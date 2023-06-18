@@ -10,8 +10,8 @@ export default async function Home() {
 
         <div className="border-2 w-80 mx-auto mt-10 hover:text-blue-400 hover:border-blue-400 py-4 transition-all duration-200 ease-out rounded-lg px-4">
           <Link href="/generate" className="text-2xl space-y-2">
-            <h2>Generate a QR code&rarr;</h2>
-            <p>buat QR code</p>
+            <h2>Generate a QR Code&rarr;</h2>
+            <p>buat QR Code</p>
           </Link>
         </div>
 
